@@ -1,0 +1,41 @@
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Log
+              run: |
+                  echo GITHUB_ACTOR: ${GITHUB_ACTOR}
+                  echo GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
+                  echo REPOSITORY_PATH : ${REPOSITORY_PATH}
+            - name: Checkout
+              uses: actions/checkout@v2
+            - uses: actions/setup-node@v1 #this installs node and npm for us
+              with:
+                  node-version: '14.x'
+            - name: Build
+              run: |
+                  npm ci
+                  npm run lint
+                  npm run build
+            - name: Add server config
+              env:
+                  serverConfigDir: 'server-config'
+                  stagingDir: 'dist/street-fighter-moves'
+              run: |
+                  cp $serverConfigDir/.htaccess $stagingDir
+            - name: Setup
+              run: sudo apt-get install lftp
+            - name: Upload ftp
+              env:
+                  localDir: './dist/street-fighter-moves'
+                  remoteDir: 'street-fighter-moves'
+              run:
+                  lftp ${{ secrets.FTP_SERVER }}
+                  -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}
+                  -e "rm -r $remoteDir; mirror -R $localDir $remoteDir"
