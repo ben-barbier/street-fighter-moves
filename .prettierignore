@@ -1,0 +1,16 @@
+/*
+!/src
+/src/assets/
+!/src/assets/i18n
+
+!/e2e
+e2e/output
+e2e/features
+e2e/data
+e2e/allure-report
+
+*.ico
+
+# System Files
+.DS_Store
+Thumbs.db
