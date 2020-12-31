@@ -1,0 +1,21 @@
+<mat-card *ngIf="character">
+    <div>
+        <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
+    </div>
+
+    <div class="character-infos">
+        <div class="title">
+            <h1>{{ character.name }}</h1>
+            <img class="flag" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+        </div>
+        <div>
+            <span>🛡 Stamina :</span>
+            <mat-progress-bar mode="determinate" [value]="(character.stamina / maxStamina) * 100"></mat-progress-bar>
+            {{ character.stamina }}
+        </div>
+        <div>
+            <span>👊 Stun :</span>
+            <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar> {{ character.stun }}
+        </div>
+    </div>
+</mat-card>

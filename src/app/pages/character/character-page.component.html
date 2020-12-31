@@ -1,0 +1,4 @@
+<ng-container *ngIf="character$ | async as character">
+    <app-character-details [character]="character" [maxStamina]="maxStamina" [maxStun]="maxStun"></app-character-details>
+    <app-character-moves [character]="character"></app-character-moves>
+</ng-container>

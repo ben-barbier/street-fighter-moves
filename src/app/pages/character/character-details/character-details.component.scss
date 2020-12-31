@@ -1,0 +1,28 @@
+mat-card {
+    display: flex;
+    margin: 12px;
+
+    img.character-thumbnail {
+        margin-right: 12px;
+    }
+
+    .character-infos {
+        width: 100%;
+
+        .title {
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5em 0;
+
+            h1 {
+                margin: 0;
+            }
+
+            .flag {
+                max-height: 2em;
+                margin-left: 1em;
+                box-shadow: rgba(0, 0, 0, 0.2) 0 2px 1px -1px, rgba(0, 0, 0, 0.14) 0 1px 1px 0, rgba(0, 0, 0, 0.12) 0 1px 3px 0;
+            }
+        }
+    }
+}

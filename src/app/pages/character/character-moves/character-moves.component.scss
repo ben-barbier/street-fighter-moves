@@ -1,0 +1,56 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+table {
+    margin: 0 6px;
+}
+
+.special,
+.super,
+.ultra {
+    .title {
+        padding: 4px 10px;
+        height: 60px;
+        box-sizing: border-box;
+
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .original-name {
+            font-size: 0.8em;
+            color: darkgrey;
+        }
+    }
+}
+
+.move {
+    margin-right: 3px;
+}
+
+.special {
+    .title {
+        background-color: lightblue;
+    }
+}
+
+.super {
+    .title {
+        color: white;
+        background-color: rgb(232, 190, 100);
+    }
+}
+
+.ultra {
+    .title {
+        color: white;
+        background-color: rgb(208, 68, 65);
+
+        .original-name {
+            color: whitesmoke;
+        }
+    }
+}

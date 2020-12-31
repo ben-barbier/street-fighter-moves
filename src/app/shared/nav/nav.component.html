@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [attr.role]="isHandset ? 'dialog' : 'navigation'"
+        [mode]="isHandset ? 'over' : 'side'"
+        [opened]="isHandset === false"
+    >
+        <mat-toolbar class="title-container">
+            <img src="assets/logo.png" alt="Menu" />
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item (click)="isHandset && drawer.close()" [routerLink]="['/sf4']"><mat-icon>view_module</mat-icon> List</a>
+            <a
+                mat-list-item
+                (click)="isHandset && drawer.close()"
+                *ngFor="let character of characters"
+                [routerLink]="['/sf4', character.id]"
+            >
+                <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
+                {{ character.name }}
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>Street Fighter Moves</span>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

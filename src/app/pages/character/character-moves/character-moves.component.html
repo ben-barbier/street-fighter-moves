@@ -1,0 +1,44 @@
+<ng-container *ngIf="character">
+    <table>
+        <tr class="special" *ngFor="let special of character.specials">
+            <td class="title">
+                <div class="name">{{ special.name }}</div>
+                <div class="original-name">{{ special.originalName }}</div>
+            </td>
+            <td>
+                <img class="move" *ngFor="let move of special.moves" [src]="'assets/moves/' + move + '.png'" [alt]="move" />
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr class="super" *ngIf="character.super.name">
+            <td class="title">
+                <div class="name">{{ character.super.name }}</div>
+                <div class="original-name">{{ character.super.originalName }}</div>
+            </td>
+            <td>
+                <img class="move" *ngFor="let move of character.super.moves" [src]="'assets/moves/' + move + '.png'" [alt]="move" />
+            </td>
+        </tr>
+
+        <tr class="ultra" *ngIf="character.ultra1.name">
+            <td class="title">
+                <div class="name">{{ character.ultra1.name }}</div>
+                <div class="original-name">{{ character.ultra1.originalName }}</div>
+            </td>
+            <td>
+                <img class="move" *ngFor="let move of character.ultra1.moves" [src]="'assets/moves/' + move + '.png'" [alt]="move" />
+            </td>
+        </tr>
+
+        <tr class="ultra" *ngIf="character.ultra2.name">
+            <td class="title">
+                <div class="name">{{ character.ultra2.name }}</div>
+                <div class="original-name">{{ character.ultra2.originalName }}</div>
+            </td>
+            <td>
+                <img class="move" *ngFor="let move of character.ultra2.moves" [src]="'assets/moves/' + move + '.png'" [alt]="move" />
+            </td>
+        </tr>
+    </table>
+</ng-container>
