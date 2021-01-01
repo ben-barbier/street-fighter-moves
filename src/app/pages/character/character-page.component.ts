@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { map } from 'rxjs/operators';
-import { data } from '../../data';
+import { Character, data } from '../../data';
 
 @UntilDestroy()
 @Component({
@@ -11,29 +11,33 @@ import { data } from '../../data';
     templateUrl: './character-page.component.html',
     styleUrls: ['./character-page.component.scss'],
 })
-export class CharacterPageComponent {
-    public characters = data[0].characters;
-
-    public selectedCharacter = this.characters[0];
-
+export class CharacterPageComponent implements OnDestroy {
+    public character$ = this.route.data.pipe(map(resolveData => resolveData.character));
     public maxStamina = data[0].characters.reduce((acc, c) => Math.max(acc, c.stamina), 0);
-
     public maxStun = data[0].characters.reduce((acc, c) => Math.max(acc, c.stun), 0);
 
-    public character$ = this.route.params.pipe(
-        map(params => params.characterId),
-        map(id => data[0].characters.find(c => c.id === id)),
-    );
-
     constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
-        this.character$.pipe(untilDestroyed(this)).subscribe(character => {
-            const titleText = character ? 'Street Fighter Moves - ' + character.name : 'Street Fighter Moves';
+        this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
+            const titleText = `Street Fighter Moves - ${character.name}`;
             title.setTitle(titleText);
 
-            const description = character
-                ? 'Street Fighter 4 Arcade Edition - ' + character.name + ' moves'
-                : 'Street Fighter 4 Arcade Edition';
+            const description = `Street Fighter 4 Arcade Edition - ${character.name} moves`;
             meta.updateTag({ name: 'description', content: description });
+
+            // 📖 : https://developers.facebook.com/docs/sharing/webmasters#markup
+            meta.updateTag({ name: 'og:url', content: window.location.href });
+            meta.updateTag({ name: 'og:type', content: 'website' });
+            meta.updateTag({ name: 'og:title', content: titleText });
+            meta.updateTag({ name: 'og:description', content: description });
+            meta.updateTag({ name: 'og:image', content: `${window.location.origin}/assets/characters/${character.id}_thumbnail.png` });
         });
+    }
+
+    ngOnDestroy(): void {
+        this.removeMetaTags();
+    }
+
+    private removeMetaTags(): void {
+        ['description', 'og:url', 'og:type', 'og:title', 'og:description', 'og:image'].forEach(tag => this.meta.removeTag(`name='${tag}'`));
     }
 }

@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CharacterPageComponent } from './pages/character/character-page.component';
+import { CharacterPageGuard } from './pages/character/character-page.guard';
+import { CharacterPageResolver } from './pages/character/character-page.resolver';
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component';
 
 const routes: Routes = [
-    // TODO: chnager les characterId par des noms
     { path: 'sf4', component: CharactersListPageComponent },
-    { path: 'sf4/:characterId', component: CharacterPageComponent },
+    {
+        path: 'sf4/:characterId',
+        component: CharacterPageComponent,
+        canActivate: [CharacterPageGuard],
+        resolve: { character: CharacterPageResolver },
+    },
     { path: '**', redirectTo: '/sf4' },
 ];
 
