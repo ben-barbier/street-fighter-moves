@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { data } from '../../data';
 
@@ -10,7 +11,7 @@ import { data } from '../../data';
 export class CharactersListPageComponent implements OnDestroy {
     public characters = data[0].characters;
 
-    constructor(private title: Title, private meta: Meta) {
+    constructor(private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
         const titleText = 'Street Fighter Moves';
         title.setTitle(titleText);
 
@@ -18,11 +19,11 @@ export class CharactersListPageComponent implements OnDestroy {
         meta.updateTag({ name: 'description', content: description });
 
         // 📖 : https://developers.facebook.com/docs/sharing/webmasters#markup
-        meta.updateTag({ name: 'og:url', content: window.location.href });
+        meta.updateTag({ name: 'og:url', content: document.URL });
         meta.updateTag({ name: 'og:type', content: 'website' });
         meta.updateTag({ name: 'og:title', content: titleText });
         meta.updateTag({ name: 'og:description', content: description });
-        meta.updateTag({ name: 'og:image', content: `${window.location.origin}/assets/logo.png` });
+        meta.updateTag({ name: 'og:image', content: `${document.baseURI}assets/logo.png` });
     }
 
     ngOnDestroy(): void {

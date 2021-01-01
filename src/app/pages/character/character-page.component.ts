@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -16,7 +17,7 @@ export class CharacterPageComponent implements OnDestroy {
     public maxStamina = data[0].characters.reduce((acc, c) => Math.max(acc, c.stamina), 0);
     public maxStun = data[0].characters.reduce((acc, c) => Math.max(acc, c.stun), 0);
 
-    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
+    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
         this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
             const titleText = `Street Fighter Moves - ${character.name}`;
             title.setTitle(titleText);
@@ -25,11 +26,11 @@ export class CharacterPageComponent implements OnDestroy {
             meta.updateTag({ name: 'description', content: description });
 
             // 📖 : https://developers.facebook.com/docs/sharing/webmasters#markup
-            meta.updateTag({ name: 'og:url', content: window.location.href });
+            meta.updateTag({ name: 'og:url', content: document.URL });
             meta.updateTag({ name: 'og:type', content: 'website' });
             meta.updateTag({ name: 'og:title', content: titleText });
             meta.updateTag({ name: 'og:description', content: description });
-            meta.updateTag({ name: 'og:image', content: `${window.location.origin}/assets/characters/${character.id}_thumbnail.png` });
+            meta.updateTag({ name: 'og:image', content: `${document.baseURI}assets/characters/${character.id}_thumbnail.png` });
         });
     }
 
