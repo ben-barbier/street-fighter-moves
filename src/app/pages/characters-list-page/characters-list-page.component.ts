@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { data } from '../../data';
 
 @Component({
@@ -8,4 +9,9 @@ import { data } from '../../data';
 })
 export class CharactersListPageComponent {
     public characters = data[0].characters;
+
+    constructor(private title: Title, private meta: Meta) {
+        title.setTitle('Street Fighter Moves');
+        meta.updateTag({ name: 'description', content: 'Street Fighter 4 Arcade Edition' });
+    }
 }

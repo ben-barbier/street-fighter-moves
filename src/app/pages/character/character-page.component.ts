@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { map } from 'rxjs/operators';
 import { data } from '../../data';
 
+@UntilDestroy()
 @Component({
     selector: 'app-character-page',
     templateUrl: './character-page.component.html',
@@ -22,5 +25,15 @@ export class CharacterPageComponent {
         map(id => data[0].characters.find(c => c.id === id)),
     );
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
+        this.character$.pipe(untilDestroyed(this)).subscribe(character => {
+            const titleText = character ? 'Street Fighter Moves - ' + character.name : 'Street Fighter Moves';
+            title.setTitle(titleText);
+
+            const description = character
+                ? 'Street Fighter 4 Arcade Edition - ' + character.name + ' moves'
+                : 'Street Fighter 4 Arcade Edition';
+            meta.updateTag({ name: 'description', content: description });
+        });
+    }
 }
