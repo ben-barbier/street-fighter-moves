@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Nouvelle version disponible</h1>
+<div mat-dialog-content>
+    <p>Une nouvelle version de l'application est disponible.</p>
+    <p>
+        Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone
+        <mat-icon>system_update</mat-icon>
+        de votre barre de navigation.
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="false">Plus tard</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">Mettre à jour</button>
+</div>
