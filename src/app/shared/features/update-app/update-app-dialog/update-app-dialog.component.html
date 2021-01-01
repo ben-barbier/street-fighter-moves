@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>Nouvelle version disponible</h1>
+<h1 mat-dialog-title>{{ 'update-app-dialog.title' | translate }}</h1>
 <div mat-dialog-content>
-    <p>Une nouvelle version de l'application est disponible.</p>
+    <p>{{ 'update-app-dialog.texts.0' | translate }}</p>
     <p>
-        Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone
+        {{ 'update-app-dialog.texts.1' | translate }}
         <mat-icon>system_update</mat-icon>
-        de votre barre de navigation.
+        {{ 'update-app-dialog.texts.2' | translate }}
     </p>
 </div>
 <div mat-dialog-actions>
-    <button mat-stroked-button color="primary" [mat-dialog-close]="false">Plus tard</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="true">Mettre à jour</button>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="false">{{ 'actions.do-later' | translate }}</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">{{ 'actions.update' | translate }}</button>
 </div>

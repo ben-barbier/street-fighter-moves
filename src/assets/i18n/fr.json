@@ -1,0 +1,18 @@
+{
+    "actions": {
+        "update": "Mettre à jour",
+        "do-later": "Plus tard"
+    },
+    "nav": {
+        "title": "Street Fighter Moves",
+        "list": "List"
+    },
+    "update-app-dialog": {
+        "title": "Street Fighter Moves : nouvelle version disponible",
+        "texts": [
+            "Une nouvelle version de l'application 'Street Fighter Moves' est disponible.",
+            "Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone",
+            "de votre barre de navigation."
+        ]
+    }
+}

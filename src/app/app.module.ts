@@ -1,5 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { NgModule } from '@angular/core';
+import { LOCATION_INITIALIZED } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -11,6 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,9 +41,10 @@ import { NavComponent } from './shared/nav/nav.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        HttpClientModule,
+        LayoutModule,
         MatProgressBarModule,
         MatIconModule,
-        LayoutModule,
         MatToolbarModule,
         MatButtonModule,
         MatSidenavModule,
@@ -47,8 +52,38 @@ import { NavComponent } from './shared/nav/nav.component';
         MatCardModule,
         MatDialogModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
+                deps: [HttpClient],
+            },
+        }),
     ],
-    providers: [],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: loadTranslations,
+            deps: [TranslateService, Injector],
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function loadTranslations(translate: TranslateService, injector: Injector): () => Promise<any> {
+    return () =>
+        new Promise<any>((resolve: any) => {
+            const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
+            locationInitialized.then(() => {
+                const langToSet = 'fr';
+                translate.setDefaultLang('fr');
+                translate.use(langToSet).subscribe(
+                    () => console.log(`Successfully initialized '${langToSet}' language.`),
+                    () => console.error(`Problem with '${langToSet}' language initialization.`),
+                    () => resolve(),
+                );
+            });
+        });
+}
