@@ -751,18 +751,35 @@ export const data: Game[] = [
                 stun: 1100,
                 country: 'USSR',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    name: 'Ultra Atomic Buster',
+                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Px3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    name: 'Siberian Blizzard',
+                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Kx3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Final Atomic Buster',
+                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'K'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Spinning Pile Driver',
+                        moves: ['M←↙↓↘→↗↑', 'P'],
+                    },
+                    {
+                        name: 'Banishing Flat',
+                        moves: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Spinning Lariat',
+                        moves: ['Px3'],
+                    },
+                    {
+                        name: 'Quick Lariat',
+                        moves: ['Kx3'],
+                    },
+                ],
             },
             {
                 id: 'rufus',
