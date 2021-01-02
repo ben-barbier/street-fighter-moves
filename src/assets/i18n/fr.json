@@ -19,13 +19,19 @@
         "title": "Commandes",
         "punch": "Coup de poing",
         "kick": "Coup de pied",
-        "light-punch":  "Coup de poing léger",
+        "light-punch": "Coup de poing léger",
         "medium-punch": "Coup de poing moyen",
-        "heavy-punch":  "Coup de poing lourd",
-        "triple-punch":  "3 boutons 'Coup de poing' en même temps",
+        "heavy-punch": "Coup de poing lourd",
+        "triple-punch": "3 boutons 'Coup de poing' en même temps",
         "light-kick": "Coup de pied léger",
-        "medium-kick":  "Coup de pied moyen",
+        "medium-kick": "Coup de pied moyen",
         "heavy-kick": "Coup de pied lourd",
-        "triple-kick":  "3 boutons 'Coup de pied' en même temps"
+        "triple-kick": "3 boutons 'Coup de pied' en même temps"
+    },
+    "pages": {
+        "character-details": {
+            "stun": "Étourdissement",
+            "stamina": "Endurance"
+        }
     }
 }

@@ -9,12 +9,12 @@
             <img class="flag" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
         </div>
         <div>
-            <span>🛡 Stamina :</span>
+            <span>🛡 {{ 'pages.character-details.stamina' | translate }} :</span>
             <mat-progress-bar mode="determinate" [value]="(character.stamina / maxStamina) * 100"></mat-progress-bar>
             {{ character.stamina }}
         </div>
         <div>
-            <span>👊 Stun :</span>
+            <span>👊 {{ 'pages.character-details.stun' | translate }} :</span>
             <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar> {{ character.stun }}
         </div>
     </div>

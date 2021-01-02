@@ -19,13 +19,19 @@
         "title": "Controls",
         "punch": "Punch",
         "kick": "Kick",
-        "light-punch":  "Light kick",
+        "light-punch": "Light kick",
         "medium-punch": "Medium kick",
-        "heavy-punch":  "Heavy kick",
-        "triple-punch":  "3 Punch buttons in same time",
+        "heavy-punch": "Heavy kick",
+        "triple-punch": "3 Punch buttons in same time",
         "light-kick": "Light kick",
-        "medium-kick":  "Medium kick",
+        "medium-kick": "Medium kick",
         "heavy-kick": "Heavy kick",
-        "triple-kick":  "3 Kick buttons in same time"
+        "triple-kick": "3 Kick buttons in same time"
+    },
+    "pages": {
+        "character-details": {
+            "stun": "Stun",
+            "stamina": "Stamina"
+        }
     }
 }
