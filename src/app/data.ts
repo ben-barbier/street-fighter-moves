@@ -562,18 +562,39 @@ export const data: Game[] = [
                 stun: 1000,
                 country: 'Thailand',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    name: 'Tiger Destruction',
+                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    name: 'Tiger Cannon',
+                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Tiger Genocide',
+                    moves: ['M↓↘→', 'M↓↘→', 'K'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Tiger Uppercut',
+                        moves: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Tiger Knee',
+                        moves: ['M→↓↘', 'K'],
+                    },
+                    {
+                        name: 'Tiger Shot (High)',
+                        moves: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Tiger Shot (Low)\n',
+                        moves: ['M↓↘→', 'K'],
+                    },
+                    {
+                        name: 'Angry Scar',
+                        moves: ['M↓↙←', 'M↓↙←', 'K'],
+                    },
+                ],
             },
             {
                 id: 'cammy',
