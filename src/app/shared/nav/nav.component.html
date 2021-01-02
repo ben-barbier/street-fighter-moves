@@ -33,6 +33,9 @@
             <span>{{ 'nav.title' | translate }}</span>
             <span class="spacer"></span>
             <app-update-app-indicator></app-update-app-indicator>
+            <button mat-icon-button (click)="openControls()">
+                <mat-icon>sports_esports</mat-icon>
+            </button>
         </mat-toolbar>
         <ng-content></ng-content>
     </mat-sidenav-content>

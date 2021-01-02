@@ -5,7 +5,7 @@
     },
     "nav": {
         "title": "Street Fighter Moves",
-        "list": "List"
+        "list": "Personnages"
     },
     "update-app-dialog": {
         "title": "Street Fighter Moves : nouvelle version disponible",
@@ -14,5 +14,18 @@
             "Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone",
             "de votre barre de navigation."
         ]
+    },
+    "controls": {
+        "title": "Commandes",
+        "punch": "Coup de poing",
+        "kick": "Coup de pied",
+        "light-punch":  "Coup de poing léger",
+        "medium-punch": "Coup de poing moyen",
+        "heavy-punch":  "Coup de poing lourd",
+        "triple-punch":  "3 boutons 'Coup de poing' en même temps",
+        "light-kick": "Coup de pied léger",
+        "medium-kick":  "Coup de pied moyen",
+        "heavy-kick": "Coup de pied lourd",
+        "triple-kick":  "3 boutons 'Coup de pied' en même temps"
     }
 }
