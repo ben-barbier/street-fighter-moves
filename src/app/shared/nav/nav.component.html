@@ -36,6 +36,17 @@
             <button mat-icon-button (click)="openControls()">
                 <mat-icon>sports_esports</mat-icon>
             </button>
+            <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
+                <mat-icon>translate</mat-icon>
+            </button>
+            <mat-menu #i18nMenu="matMenu">
+                <button mat-menu-item class="flagButton" (click)="setLang('fr')">
+                    <img class="flag" src="assets/countries/France.svg" alt="fr" />
+                </button>
+                <button mat-menu-item class="flagButton" (click)="setLang('en')">
+                    <img class="flag" src="assets/countries/UK.svg" alt="en" />
+                </button>
+            </mat-menu>
         </mat-toolbar>
         <ng-content></ng-content>
     </mat-sidenav-content>

@@ -33,3 +33,11 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+.flagButton {
+    text-align: center;
+
+    .flag {
+        max-height: 36px;
+    }
+}
