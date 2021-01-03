@@ -256,18 +256,43 @@ export const data: Game[] = [
                 stun: 1000,
                 country: 'Japan',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    name: 'Shin Shoryuken',
+                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    // 💡 : inflict heavy stun instead of damage
+                    name: 'Denjin Hadouken',
+                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Forbidden Shoryuken',
+                    moves: ['M↓↘→', 'M↓↘→', 'P'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Gohadoken',
+                        // 💡 : Chargeable
+                        // 💡 : 1 P = 1 direction
+                        moves: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Senkugoshoha',
+                        moves: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Tatsumaki Gorasen',
+                        moves: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Hyakkishu',
+                        moves: ['M→↓↘', 'K'],
+                    },
+                    {
+                        name: 'Kongoshin',
+                        // 💡 : K or P
+                        moves: ['M←↓↙', 'K'],
+                    },
+                ],
             },
             {
                 id: 'akuma',
