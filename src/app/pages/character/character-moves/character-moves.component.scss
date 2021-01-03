@@ -7,12 +7,33 @@ table {
     margin: 0 6px;
 }
 
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .special,
 .super,
 .ultra {
+    .type {
+        font-weight: bold;
+        writing-mode: tb-rl;
+        width: 18px;
+        text-align: center;
+        margin-right: 2px;
+        text-shadow: 0 0 3px black;
+    }
+
     .title {
+        &.combo {
+            display: flex;
+            padding: 4px 10px 4px 4px;
+        }
+
         padding: 4px 10px;
-        height: 60px;
+        min-height: 64px;
+        height: 100%;
         box-sizing: border-box;
 
         .name {
@@ -22,7 +43,6 @@ table {
 
         .original-name {
             font-size: 0.8em;
-            color: darkgrey;
         }
     }
 }
@@ -33,24 +53,39 @@ table {
 
 .special {
     .title {
-        background-color: lightblue;
+        color: white;
+        background-color: #03a9f4;
+
+        .original-name {
+            color: #b3e5fc;
+        }
     }
 }
 
 .super {
+    .type {
+        color: #ffa000;
+    }
     .title {
         color: white;
-        background-color: rgb(232, 190, 100);
+        background-color: #ffc107;
+
+        .original-name {
+            color: #ffecb3;
+        }
     }
 }
 
 .ultra {
+    .type {
+        color: #d32f2f;
+    }
     .title {
         color: white;
-        background-color: rgb(208, 68, 65);
+        background-color: #f44336;
 
         .original-name {
-            color: whitesmoke;
+            color: #ffcdd2;
         }
     }
 }
