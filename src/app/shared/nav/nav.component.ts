@@ -1,4 +1,4 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +19,7 @@ export class NavComponent {
 
     constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog, private translate: TranslateService) {
         this.breakpointObserver
-            .observe(Breakpoints.Handset)
+            .observe('(max-width: 739px)')
             .pipe(map(result => result.matches))
             .subscribe(isHandset => (this.isHandset = isHandset));
     }
