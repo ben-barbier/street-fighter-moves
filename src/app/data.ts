@@ -118,18 +118,41 @@ export const data: Game[] = [
                 stun: 1100,
                 country: 'Japan',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    // *ARMOR BREAKING*
+                    name: 'Ultimate Killer Head Ram',
+                    originalName: 'Shin Oni Musou',
+                    moves: ['MC←→', 'M←→', 'Px3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    name: 'Orochi Breaker',
+                    moves: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Super Killer Head Ram',
+                    originalName: 'oni musou',
+                    moves: ['MC←→', 'M←→', 'P'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Hundred Hand Slap',
+                        moves: ['P', 'P', 'P', 'P'],
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Sumo Headbutt',
+                        moves: ['MC←→', 'P'],
+                    },
+                    {
+                        name: 'Sumo Smash',
+                        originalName: 'Hyakkan Otoshi',
+                        moves: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Oicho Throw',
+                        originalName: 'Oicho Nage',
+                        moves: ['M→↘↓↙←', 'P'],
+                    },
+                ],
             },
             {
                 id: 'ibuki',
