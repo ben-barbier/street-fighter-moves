@@ -900,18 +900,45 @@ export const data: Game[] = [
                 stun: 900,
                 country: 'Spain',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    name: 'Bloody High Claw',
+                    moves: ['MC↙↘', 'M↗', 'Kx3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    name: 'Splendid Claw',
+                    moves: ['MC↙→', 'M←→', 'Kx3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Flying Barcelona Special',
+                    moves: ['MC↙↘', 'M↗', 'K'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Rolling Crystal Flash',
+                        moves: ['MC←→', 'P'],
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Scarlet Terror',
+                        moves: ['MC↙→', 'K'],
+                    },
+                    {
+                        // *EX HAS ARMOR BREAKING*
+                        name: 'Sky High Claw',
+                        moves: ['MC↓↑', 'P'],
+                    },
+                    {
+                        name: 'Flying Barcelona Attack',
+                        moves: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Short Back Flip',
+                        moves: ['Kx3'],
+                    },
+                    {
+                        name: 'Back Flip',
+                        moves: ['Px3'],
+                    },
+                ],
             },
             {
                 id: 'balrog',
