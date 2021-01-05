@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { GithubButtonModule } from 'ng-github-button';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import { NavComponent } from './shared/nav/nav.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        GithubButtonModule,
         HttpClientModule,
         LayoutModule,
         MatProgressBarModule,
