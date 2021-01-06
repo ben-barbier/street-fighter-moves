@@ -9,14 +9,14 @@ const routes: Routes = [
     {
         path: 'sf4',
         component: CharactersListPageComponent,
-        data: { animation: 'ListPage' },
+        data: { page: 'ListPage' },
     },
     {
         path: 'sf4/:characterId',
         component: CharacterPageComponent,
         canActivate: [CharacterPageGuard],
         resolve: { character: CharacterPageResolver },
-        data: { animation: 'CharacterPage' },
+        data: { page: 'CharacterPage' },
     },
     { path: '**', redirectTo: '/sf4' },
 ];
