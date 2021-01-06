@@ -43,8 +43,8 @@ import { NavComponent } from './shared/nav/nav.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         BrowserAnimationsModule,
+        AppRoutingModule,
         GithubButtonModule,
         HttpClientModule,
         LayoutModule,

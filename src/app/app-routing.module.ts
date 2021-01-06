@@ -6,12 +6,17 @@ import { CharacterPageResolver } from './pages/character/character-page.resolver
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component';
 
 const routes: Routes = [
-    { path: 'sf4', component: CharactersListPageComponent },
+    {
+        path: 'sf4',
+        component: CharactersListPageComponent,
+        data: { animation: 'ListPage' },
+    },
     {
         path: 'sf4/:characterId',
         component: CharacterPageComponent,
         canActivate: [CharacterPageGuard],
         resolve: { character: CharacterPageResolver },
+        data: { animation: 'CharacterPage' },
     },
     { path: '**', redirectTo: '/sf4' },
 ];

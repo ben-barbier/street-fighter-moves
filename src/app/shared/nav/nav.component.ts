@@ -1,16 +1,19 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { version } from '../../../../package.json';
 import { data } from '../../data';
+import { slideInAnimation } from '../animations';
 import { ControlsComponent } from '../controls/controls.component';
 
 @Component({
     selector: 'app-nav',
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss'],
+    animations: [slideInAnimation],
 })
 export class NavComponent {
     public characters = data[0].characters;
@@ -28,7 +31,11 @@ export class NavComponent {
         this.dialog.open(ControlsComponent);
     }
 
-    setLang(lang: 'fr' | 'en'): void {
+    public setLang(lang: 'fr' | 'en'): void {
         this.translate.use(lang);
+    }
+
+    public prepareRoute(outlet: RouterOutlet): string | undefined {
+        return outlet?.activatedRouteData?.animation;
     }
 }
