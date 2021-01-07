@@ -20,10 +20,11 @@ import { GithubButtonModule } from 'ng-github-button';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterDetailsComponent } from './pages/character/character-details/character-details.component';
-import { CharacterMovesComponent } from './pages/character/character-moves/character-moves.component';
-import { CharacterPageComponent } from './pages/character/character-page.component';
+import { CharacterDetailsComponent } from './pages/character-page/character-details/character-details.component';
+import { CharacterMovesComponent } from './pages/character-page/character-moves/character-moves.component';
+import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component';
+import { CountryPageComponent } from './pages/country-page/country-page.component';
 import { ControlsComponent } from './shared/controls/controls.component';
 import { UpdateAppDialogComponent } from './shared/features/update-app/update-app-dialog/update-app-dialog.component';
 import { UpdateAppIndicatorComponent } from './shared/features/update-app/update-app-indicator/update-app-indicator.component';
@@ -40,6 +41,7 @@ import { NavComponent } from './shared/nav/nav.component';
         UpdateAppIndicatorComponent,
         NavComponent,
         ControlsComponent,
+        CountryPageComponent,
     ],
     imports: [
         BrowserModule,

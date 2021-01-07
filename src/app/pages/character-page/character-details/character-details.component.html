@@ -6,7 +6,9 @@
     <div class="character-infos">
         <div class="title">
             <h1>{{ character.name }}</h1>
-            <img class="flag" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+            <a class="flag" [routerLink]="['/sf4', 'countries', character.country]">
+                <img [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+            </a>
         </div>
         <div>
             <span>🛡 {{ 'pages.character-details.stamina' | translate }} :</span>

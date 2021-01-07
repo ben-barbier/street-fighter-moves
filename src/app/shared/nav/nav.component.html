@@ -19,7 +19,7 @@
                 mat-list-item
                 (click)="isHandset && drawer.close()"
                 *ngFor="let character of characters"
-                [routerLink]="['/sf4', character.id]"
+                [routerLink]="['/sf4', 'characters', character.id]"
             >
                 <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
                 {{ character.name }}
