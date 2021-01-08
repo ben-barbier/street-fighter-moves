@@ -7,7 +7,7 @@
         <div class="title">
             <h1>{{ character.name }}</h1>
             <a class="flag" [routerLink]="['/sf4', 'countries', character.country]">
-                <img [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+                <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
             </a>
         </div>
         <div>

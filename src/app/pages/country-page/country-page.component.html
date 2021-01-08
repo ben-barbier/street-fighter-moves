@@ -1,6 +1,6 @@
 <div *ngIf="characters$ | async as characters" @enter>
     <div class="country-flag">
-        <img [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
+        <img class="mat-elevation-z2" [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
     </div>
     <div class="characters">
         <app-character-details
