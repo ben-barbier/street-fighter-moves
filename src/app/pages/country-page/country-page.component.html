@@ -3,6 +3,11 @@
         <img [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
     </div>
     <div class="characters">
-        <app-character-details *ngFor="let character of characters" [character]="character"></app-character-details>
+        <app-character-details
+            *ngFor="let character of characters"
+            [character]="character"
+            [maxStamina]="maxStamina"
+            [maxStun]="maxStun"
+        ></app-character-details>
     </div>
 </ng-container>

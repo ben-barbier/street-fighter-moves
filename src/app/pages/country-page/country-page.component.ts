@@ -1,7 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Character, maxStamina, maxStun } from '../../data';
 
 @Component({
     selector: 'app-country-page',
@@ -9,7 +11,9 @@ import { map } from 'rxjs/operators';
     styleUrls: ['./country-page.component.scss'],
 })
 export class CountryPageComponent implements OnDestroy {
-    public characters$ = this.route.data.pipe(map(resolveData => resolveData.character));
+    public characters$: Observable<Character[]> = this.route.data.pipe(map(resolveData => resolveData.character));
+    public maxStamina = maxStamina(1);
+    public maxStun = maxStun(1);
 
     constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {}
 

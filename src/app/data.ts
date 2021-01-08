@@ -1048,3 +1048,9 @@ export const data: Game[] = [
         ],
     },
 ];
+
+export const maxStamina = (gameId: number): number =>
+    data.find(g => g.id === gameId)?.characters.reduce((acc, c) => Math.max(acc, c.stamina), 0) ?? 0;
+
+export const maxStun = (gameId: number): number =>
+    data.find(g => g.id === gameId)?.characters.reduce((acc, c) => Math.max(acc, c.stun), 0) ?? 0;

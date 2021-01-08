@@ -3,8 +3,9 @@ import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Character, data } from '../../data';
+import { Character, maxStamina, maxStun } from '../../data';
 
 @UntilDestroy()
 @Component({
@@ -13,9 +14,9 @@ import { Character, data } from '../../data';
     styleUrls: ['./character-page.component.scss'],
 })
 export class CharacterPageComponent implements OnDestroy {
-    public character$ = this.route.data.pipe(map(resolveData => resolveData.character));
-    public maxStamina = data[0].characters.reduce((acc, c) => Math.max(acc, c.stamina), 0);
-    public maxStun = data[0].characters.reduce((acc, c) => Math.max(acc, c.stun), 0);
+    public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData.character));
+    public maxStamina = maxStamina(1);
+    public maxStun = maxStun(1);
 
     constructor(private route: ActivatedRoute, private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
         this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
