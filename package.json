@@ -27,6 +27,7 @@
     "@ngneat/until-destroy": "^8.0.3",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "angular-animations": "^0.11.0",
     "ng-github-button": "^11.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
