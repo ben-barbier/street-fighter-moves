@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { zoomInOnEnterAnimation } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Character, maxStamina, maxStun } from '../../data';
@@ -9,6 +10,7 @@ import { Character, maxStamina, maxStun } from '../../data';
     selector: 'app-country-page',
     templateUrl: './country-page.component.html',
     styleUrls: ['./country-page.component.scss'],
+    animations: [zoomInOnEnterAnimation({ anchor: 'enter', duration: 800 })],
 })
 export class CountryPageComponent implements OnDestroy {
     public characters$: Observable<Character[]> = this.route.data.pipe(map(resolveData => resolveData.character));

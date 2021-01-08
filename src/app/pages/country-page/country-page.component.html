@@ -1,4 +1,4 @@
-<ng-container *ngIf="characters$ | async as characters">
+<div *ngIf="characters$ | async as characters" @enter>
     <div class="country-flag">
         <img [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
     </div>
@@ -10,4 +10,4 @@
             [maxStun]="maxStun"
         ></app-character-details>
     </div>
-</ng-container>
+</div>
