@@ -14,12 +14,8 @@
     </div>
 
     <div class="characters">
-        <app-character-details
-            *ngFor="let character of characters"
-            [character]="character"
-            [maxStamina]="maxStamina"
-            [maxStun]="maxStun"
-            [routerLink]="['/sf4', 'characters', character.id]"
-        ></app-character-details>
+        <a *ngFor="let character of characters" [routerLink]="['/sf4', 'characters', character.id]">
+            <app-character-details [character]="character" [maxStamina]="maxStamina" [maxStun]="maxStun"></app-character-details>
+        </a>
     </div>
 </div>

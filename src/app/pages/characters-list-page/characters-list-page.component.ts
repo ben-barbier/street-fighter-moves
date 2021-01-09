@@ -1,12 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { slideInLeftOnEnterAnimation } from 'angular-animations';
 import { data } from '../../data';
 
 @Component({
     selector: 'app-characters-list-page',
     templateUrl: './characters-list-page.component.html',
     styleUrls: ['./characters-list-page.component.scss'],
+    animations: [slideInLeftOnEnterAnimation({ anchor: 'enter', duration: 600 })],
 })
 export class CharactersListPageComponent implements OnDestroy {
     public characters = data[0].characters;

@@ -6,14 +6,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { version } from '../../../../package.json';
 import { data } from '../../data';
-import { slideInAnimation } from '../animations';
 import { ControlsComponent } from '../controls/controls.component';
 
 @Component({
     selector: 'app-nav',
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss'],
-    animations: [slideInAnimation],
 })
 export class NavComponent {
     public characters = data[0].characters;

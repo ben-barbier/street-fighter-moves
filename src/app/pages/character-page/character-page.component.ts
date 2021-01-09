@@ -3,6 +3,7 @@ import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { slideInRightOnEnterAnimation } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Character, maxStamina, maxStun } from '../../data';
@@ -12,6 +13,7 @@ import { Character, maxStamina, maxStun } from '../../data';
     selector: 'app-character-page',
     templateUrl: './character-page.component.html',
     styleUrls: ['./character-page.component.scss'],
+    animations: [slideInRightOnEnterAnimation({ anchor: 'enter', duration: 600 })],
 })
 export class CharacterPageComponent implements OnDestroy {
     public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData.character));

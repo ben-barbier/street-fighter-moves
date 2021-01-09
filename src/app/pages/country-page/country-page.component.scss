@@ -30,9 +30,13 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    app-character-details {
-        display: block;
-        width: 370px;
-        max-width: 100%;
+    a {
+        text-decoration: none;
+
+        app-character-details {
+            display: block;
+            width: 370px;
+            max-width: 100%;
+        }
     }
 }
