@@ -237,18 +237,51 @@ export const data: Game[] = [
                 stun: 1050,
                 country: 'UK',
                 ultra1: {
-                    name: '',
-                    moves: [],
+                    name: 'Rolling Thunder',
+                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
                 },
                 ultra2: {
-                    name: '',
-                    moves: [],
+                    name: 'Corkscrew Cross',
+                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
                 },
                 super: {
-                    name: '',
-                    moves: [],
+                    name: 'Rocket Upper',
+                    moves: ['M↓↘→', 'M↓↘→', 'P'],
                 },
-                specials: [],
+                specials: [
+                    {
+                        name: 'Jet Upper',
+                        moves: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Machine Gun Blow',
+                        moves: ['M←↙↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Cross Counter',
+                        moves: ['M→↘↓↙←', 'P'],
+                    },
+                    {
+                        name: 'Short Swing Blow',
+                        moves: ['M→↘↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Duck',
+                        moves: ['M←↙↓↘→', 'K'],
+                    },
+                    {
+                        name: 'Ducking Straight',
+                        moves: ['M←↙↓↘→', 'K', 'P'],
+                    },
+                    {
+                        name: 'Ducking Upper',
+                        moves: ['M←↙↓↘→', 'K', 'K'],
+                    },
+                    {
+                        name: 'Thunderbolt',
+                        moves: ['MC↓↑', 'K'],
+                    },
+                ],
             },
             {
                 id: 'seth',
