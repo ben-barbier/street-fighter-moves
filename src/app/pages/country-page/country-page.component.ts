@@ -2,9 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { zoomInOnEnterAnimation } from 'angular-animations';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Character, maxStamina, maxStun } from '../../data';
+import { Character, countries, maxStamina, maxStun } from '../../data';
 
 @Component({
     selector: 'app-country-page',
@@ -13,11 +12,19 @@ import { Character, maxStamina, maxStun } from '../../data';
     animations: [zoomInOnEnterAnimation({ anchor: 'enter', duration: 800 })],
 })
 export class CountryPageComponent implements OnDestroy {
-    public characters$: Observable<Character[]> = this.route.data.pipe(map(resolveData => resolveData.character));
+    public characters: Character[] = [];
     public maxStamina = maxStamina(1);
     public maxStun = maxStun(1);
+    public otherCountries: string[] = [];
 
-    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {}
+    // TODO: manage title and tags
+
+    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
+        this.route.data.pipe(map(resolveData => resolveData.character)).subscribe(characters => {
+            this.characters = characters;
+            this.otherCountries = [...new Set(countries(1).filter(c => c !== this.characters[0].country))];
+        });
+    }
 
     ngOnDestroy(): void {
         this.removeMetaTags();

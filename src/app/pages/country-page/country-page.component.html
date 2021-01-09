@@ -1,7 +1,18 @@
-<div *ngIf="characters$ | async as characters" @enter>
-    <div class="country-flag">
-        <img class="mat-elevation-z2" [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
+<div @enter>
+    <div
+        class="country-flag mat-elevation-z4"
+        [ngStyle]="{ background: 'url(assets/countries/' + characters[0].country + '.svg) center center/cover no-repeat' }"
+    >
+        <div class="light">
+            <img class="mat-elevation-z3" [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
+            <div class="other-countries-flags">
+                <a *ngFor="let country of otherCountries" [routerLink]="['/sf4', 'countries', country]">
+                    <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="characters[0].country" />
+                </a>
+            </div>
+        </div>
     </div>
+
     <div class="characters">
         <app-character-details
             *ngFor="let character of characters"

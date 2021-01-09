@@ -1,11 +1,27 @@
 .country-flag {
     text-align: center;
 
-    img {
-        width: 250px;
-        margin-top: 12px;
-        max-width: calc(100% - 24px);
-        text-align: center;
+    .light {
+        background: rgba(255, 255, 255, 0.7);
+
+        & > img {
+            width: 250px;
+            margin-top: 12px;
+            max-width: calc(100% - 24px);
+            text-align: center;
+        }
+
+        .other-countries-flags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 12px 0;
+
+            a img {
+                height: 40px;
+                margin: 3px 6px;
+            }
+        }
     }
 }
 

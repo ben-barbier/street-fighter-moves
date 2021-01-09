@@ -1054,3 +1054,5 @@ export const maxStamina = (gameId: number): number =>
 
 export const maxStun = (gameId: number): number =>
     data.find(g => g.id === gameId)?.characters.reduce((acc, c) => Math.max(acc, c.stun), 0) ?? 0;
+
+export const countries = (gameId: number): string[] => data.find(g => g.id === gameId)?.characters.map(c => c.country) ?? [];
