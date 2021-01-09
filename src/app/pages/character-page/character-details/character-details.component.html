@@ -11,13 +11,12 @@
             </a>
         </div>
         <div>
-            <span>🛡 {{ 'pages.character-details.stamina' | translate }} :</span>
+            <span>🛡 {{ 'pages.character-details.stamina' | translate }} - {{ character.stamina }}</span>
             <mat-progress-bar mode="determinate" [value]="(character.stamina / maxStamina) * 100"></mat-progress-bar>
-            {{ character.stamina }}
         </div>
         <div>
-            <span>👊 {{ 'pages.character-details.stun' | translate }} :</span>
-            <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar> {{ character.stun }}
+            <span>👊 {{ 'pages.character-details.stun' | translate }} - {{ character.stun }}</span>
+            <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar>
         </div>
     </div>
 </mat-card>
