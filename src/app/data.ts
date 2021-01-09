@@ -82,11 +82,11 @@ export const data: Game[] = [
                 country: 'USA',
                 ultra1: {
                     name: 'Shinryuuken',
-                    moves: ['M↓↘→', 'M↓↘→', 'P3'],
+                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
                 },
                 ultra2: {
                     name: 'Guren Senpukyaku',
-                    moves: ['M↓↘→', 'M↓↘→', 'K3'],
+                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
                 },
                 super: {
                     name: 'Shoryu-Reppa',
