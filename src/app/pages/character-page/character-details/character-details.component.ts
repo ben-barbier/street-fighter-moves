@@ -10,4 +10,5 @@ export class CharacterDetailsComponent {
     @Input() character: Character | undefined;
     @Input() maxStamina = 1;
     @Input() maxStun = 1;
+    @Input() countryLinkActive = false;
 }

@@ -6,9 +6,12 @@
     <div class="character-infos">
         <div class="title">
             <h1>{{ character.name }}</h1>
-            <a class="flag" [routerLink]="['/sf4', 'countries', character.country]">
+            <a class="flag" *ngIf="countryLinkActive" [routerLink]="['/sf4', 'countries', character.country]">
                 <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
             </a>
+            <span class="flag" *ngIf="!countryLinkActive">
+                <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+            </span>
         </div>
         <div>
             <span>🛡 {{ 'pages.character-details.stamina' | translate }} - {{ character.stamina }}</span>

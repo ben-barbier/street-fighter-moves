@@ -1,4 +1,9 @@
 <div *ngIf="character$ | async as character" @enter>
-    <app-character-details [character]="character" [maxStamina]="maxStamina" [maxStun]="maxStun"></app-character-details>
+    <app-character-details
+        [character]="character"
+        [maxStamina]="maxStamina"
+        [maxStun]="maxStun"
+        [countryLinkActive]="true"
+    ></app-character-details>
     <app-character-moves [character]="character"></app-character-moves>
 </div>
