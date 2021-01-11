@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { zoomInOnEnterAnimation } from 'angular-animations';
+import { fadeInOnEnterAnimation } from 'angular-animations';
 import { map } from 'rxjs/operators';
 import { Character, countries, maxStamina, maxStun } from '../../data';
 
@@ -9,7 +9,7 @@ import { Character, countries, maxStamina, maxStun } from '../../data';
     selector: 'app-country-page',
     templateUrl: './country-page.component.html',
     styleUrls: ['./country-page.component.scss'],
-    animations: [zoomInOnEnterAnimation({ anchor: 'enter', duration: 800 })],
+    animations: [fadeInOnEnterAnimation({ anchor: 'enter', duration: 800 })],
 })
 export class CountryPageComponent implements OnDestroy {
     public characters: Character[] = [];
