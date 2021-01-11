@@ -225,8 +225,44 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1050,
                 country: 'Japan',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Fukiage',
+                        motions: ['M→↓↘', 'P'],
                     },
+                    {
+                        name: 'Hayate',
+                        motions: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Oroshi',
+                        motions: ['M↓↙←', 'P'],
+                    },
+                    {
+                        name: 'Karakusa',
+                        motions: ['M→↘↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Tsurugi',
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Tanden Renki',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Seichusen Godanzaki',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Abare Tosanami',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
+                    },
+                ],
+            },
             {
                 id: 'dudley',
                 order: 6,
