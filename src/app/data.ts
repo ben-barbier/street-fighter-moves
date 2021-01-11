@@ -11,16 +11,14 @@ export interface Character {
     stamina: number;
     stun: number;
     country: string;
-    ultra1: Move;
-    ultra2: Move;
-    super: Move;
-    specials: Move[];
+    moves: Move[];
 }
 
 export interface Move {
     name: string;
     originalName?: string;
-    moves: string[];
+    type?: 'super' | 'ultra1' | 'ultra2';
+    motions: string[];
 }
 
 export const data: Game[] = [
@@ -35,41 +33,44 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1000,
                 country: 'Japan',
-                ultra1: {
-                    name: 'Fireball ++',
-                    originalName: 'Metsu Hadouken',
-                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
-                },
-                ultra2: {
-                    name: 'Dragon Punch ++',
-                    originalName: 'Metsu Shoryuken',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                super: {
-                    name: 'Fireball +',
-                    originalName: 'Shinkuu Hadouken',
-                    moves: ['M↓↘→', 'M↓↘→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Fireball',
                         originalName: 'Hadouken',
-                        moves: ['M↓↘→', 'P'],
+                        motions: ['M↓↘→', 'P'],
                     },
                     {
                         name: 'Dragon Punch',
                         originalName: 'Shoryuken',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Hurricane Kick',
                         originalName: 'Tatsumaki Senpuukyaku',
-                        moves: ['M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'K'],
                     },
                     {
                         name: 'Air Hurricane Kick',
                         originalName: '',
-                        moves: ['J', 'M↓↙←', 'K'],
+                        motions: ['J', 'M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Fireball +',
+                        originalName: 'Shinkuu Hadouken',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Fireball ++',
+                        originalName: 'Metsu Hadouken',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Dragon Punch ++',
+                        originalName: 'Metsu Shoryuken',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -80,33 +81,36 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1000,
                 country: 'USA',
-                ultra1: {
-                    name: 'Shinryuuken',
-                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
-                },
-                ultra2: {
-                    name: 'Guren Senpukyaku',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                super: {
-                    name: 'Shoryu-Reppa',
-                    moves: ['M↓↘→', 'M↓↘→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Fireball',
                         originalName: 'Hadouken',
-                        moves: ['M↓↘→', 'P'],
+                        motions: ['M↓↘→', 'P'],
                     },
                     {
                         name: 'Dragon Punch',
                         originalName: 'Shoryuken',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Hurricane Kick',
                         originalName: 'Tatsumaki Senpuukyaku',
-                        moves: ['M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Shoryu-Reppa',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Shinryuuken',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Guren Senpukyaku',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -117,40 +121,43 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1100,
                 country: 'Japan',
-                ultra1: {
-                    // *ARMOR BREAKING*
-                    name: 'Ultimate Killer Head Ram',
-                    originalName: 'Shin Oni Musou',
-                    moves: ['MC←→', 'M←→', 'Px3'],
-                },
-                ultra2: {
-                    name: 'Orochi Breaker',
-                    moves: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
-                },
-                super: {
-                    name: 'Super Killer Head Ram',
-                    originalName: 'oni musou',
-                    moves: ['MC←→', 'M←→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Hundred Hand Slap',
-                        moves: ['P', 'P', 'P', 'P'],
+                        motions: ['P', 'P', 'P', 'P'],
                     },
                     {
                         // *ARMOR BREAKING*
                         name: 'Sumo Headbutt',
-                        moves: ['MC←→', 'P'],
+                        motions: ['MC←→', 'P'],
                     },
                     {
                         name: 'Sumo Smash',
                         originalName: 'Hyakkan Otoshi',
-                        moves: ['MC↓↑', 'K'],
+                        motions: ['MC↓↑', 'K'],
                     },
                     {
                         name: 'Oicho Throw',
                         originalName: 'Oicho Nage',
-                        moves: ['M→↘↓↙←', 'P'],
+                        motions: ['M→↘↓↙←', 'P'],
+                    },
+                    {
+                        name: 'Super Killer Head Ram',
+                        originalName: 'oni musou',
+                        motions: ['MC←→', 'M←→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Ultimate Killer Head Ram',
+                        originalName: 'Shin Oni Musou',
+                        motions: ['MC←→', 'M←→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Orochi Breaker',
+                        motions: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -161,50 +168,53 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 950,
                 country: 'Japan',
-                ultra1: {
-                    name: 'Yoroitoshi',
-                    moves: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
-                },
-                ultra2: {
-                    name: 'Hashinsho',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                super: {
-                    name: 'Kasumi Suzaku',
-                    moves: ['J', 'M↓↘→', 'M↓↘→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Kunai',
-                        moves: ['J', 'M↓↘→', 'P'],
+                        motions: ['J', 'M↓↘→', 'P'],
                     },
                     {
                         name: 'Tsujigoe',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Neck Breaker',
-                        moves: ['M←↙↓↘→', 'P'],
+                        motions: ['M←↙↓↘→', 'P'],
                     },
                     {
                         name: 'Raida',
-                        moves: ['M→↘↓↙←', 'P'],
+                        motions: ['M→↘↓↙←', 'P'],
                     },
                     {
                         name: 'Kasumi Gake',
-                        moves: ['M↓↘→', 'K'],
+                        motions: ['M↓↘→', 'K'],
                     },
                     {
                         name: 'Kazegiri',
-                        moves: ['M→↓↘', 'K'],
+                        motions: ['M→↓↘', 'K'],
                     },
                     {
                         name: 'Tsumuji',
-                        moves: ['M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'K'],
                     },
                     {
                         name: 'Hein',
-                        moves: ['M←↓↙', 'K'],
+                        motions: ['M←↓↙', 'K'],
+                    },
+                    {
+                        name: 'Kasumi Suzaku',
+                        motions: ['J', 'M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Yoroitoshi',
+                        motions: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Hashinsho',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -215,20 +225,8 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1050,
                 country: 'Japan',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
-            },
+                moves: [],
+                    },
             {
                 id: 'dudley',
                 order: 6,
@@ -236,50 +234,53 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1050,
                 country: 'UK',
-                ultra1: {
-                    name: 'Rolling Thunder',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                ultra2: {
-                    name: 'Corkscrew Cross',
-                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
-                },
-                super: {
-                    name: 'Rocket Upper',
-                    moves: ['M↓↘→', 'M↓↘→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Jet Upper',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Machine Gun Blow',
-                        moves: ['M←↙↓↘→', 'P'],
+                        motions: ['M←↙↓↘→', 'P'],
                     },
                     {
                         name: 'Cross Counter',
-                        moves: ['M→↘↓↙←', 'P'],
+                        motions: ['M→↘↓↙←', 'P'],
                     },
                     {
                         name: 'Short Swing Blow',
-                        moves: ['M→↘↓↙←', 'K'],
+                        motions: ['M→↘↓↙←', 'K'],
                     },
                     {
                         name: 'Duck',
-                        moves: ['M←↙↓↘→', 'K'],
+                        motions: ['M←↙↓↘→', 'K'],
                     },
                     {
                         name: 'Ducking Straight',
-                        moves: ['M←↙↓↘→', 'K', 'P'],
+                        motions: ['M←↙↓↘→', 'K', 'P'],
                     },
                     {
                         name: 'Ducking Upper',
-                        moves: ['M←↙↓↘→', 'K', 'K'],
+                        motions: ['M←↙↓↘→', 'K', 'K'],
                     },
                     {
                         name: 'Thunderbolt',
-                        moves: ['MC↓↑', 'K'],
+                        motions: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Rocket Upper',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Rolling Thunder',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Corkscrew Cross',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -290,19 +291,7 @@ export const data: Game[] = [
                 stamina: 800,
                 stun: 900,
                 country: 'None',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'gouken',
@@ -311,42 +300,45 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1000,
                 country: 'Japan',
-                ultra1: {
-                    name: 'Shin Shoryuken',
-                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
-                },
-                ultra2: {
-                    // 💡 : inflict heavy stun instead of damage
-                    name: 'Denjin Hadouken',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                super: {
-                    name: 'Forbidden Shoryuken',
-                    moves: ['M↓↘→', 'M↓↘→', 'P'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Gohadoken',
                         // 💡 : Chargeable
                         // 💡 : 1 P = 1 direction
-                        moves: ['M↓↘→', 'P'],
+                        motions: ['M↓↘→', 'P'],
                     },
                     {
                         name: 'Senkugoshoha',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Tatsumaki Gorasen',
-                        moves: ['M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'K'],
                     },
                     {
                         name: 'Hyakkishu',
-                        moves: ['M→↓↘', 'K'],
+                        motions: ['M→↓↘', 'K'],
                     },
                     {
                         name: 'Kongoshin',
                         // 💡 : K or P
-                        moves: ['M←↓↙', 'K'],
+                        motions: ['M←↓↙', 'K'],
+                    },
+                    {
+                        name: 'Forbidden Shoryuken',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Shin Shoryuken',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        // 💡 : inflict heavy stun instead of damage
+                        name: 'Denjin Hadouken',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -357,71 +349,74 @@ export const data: Game[] = [
                 stamina: 850,
                 stun: 850,
                 country: 'Japan',
-                // TODO: vérifier la différence entre super et ultra : https://www.eventhubs.com/moves/sf4/akuma/
-                ultra1: {
-                    name: 'Wrath of the Raging Demon',
-                    originalName: 'Shin Shun Goku Satsu',
-                    moves: ['P1', 'P1', 'M←', 'K1', 'P3'],
-                },
-                ultra2: {
-                    name: 'Demon Armageddon',
-                    moves: ['M↑', 'M↑', 'Kx3'],
-                },
-                super: {
-                    name: 'Raging Demon',
-                    originalName: 'Shun Goku Satsu',
-                    moves: ['P1', 'P1', 'M←', 'K1', 'P3'],
-                },
-                specials: [
+                moves: [
+                    // TODO: vérifier la différence entre super et ultra : https://www.eventhubs.com/motions/sf4/akuma/
                     {
                         name: 'Fireball',
                         originalName: 'Gou Hadouken',
-                        moves: ['M↓↘→', 'P'],
+                        motions: ['M↓↘→', 'P'],
                     },
                     {
                         name: 'Air Fireball (↘)',
                         originalName: 'Gou Hadouken',
-                        moves: ['J', 'M↓↘→', 'P'],
+                        motions: ['J', 'M↓↘→', 'P'],
                     },
                     {
                         name: 'Multi-hit Fireball',
                         originalName: 'Shakunetsu Hadouken',
-                        moves: ['M→↘↓↙←', 'P'],
+                        motions: ['M→↘↓↙←', 'P'],
                     },
                     {
                         name: 'Dragon Punch',
                         originalName: 'Gou Shoryuken',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Hurricane Kick',
                         originalName: 'Tatsumaki Zankukyaku',
-                        moves: ['M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'K'],
                     },
                     {
                         name: 'Demon Flip',
                         originalName: 'Hyakki Shu',
-                        moves: ['M→↓↘', 'K'],
+                        motions: ['M→↓↘', 'K'],
                     },
                     {
                         name: 'Teleport - Approach (far)',
                         originalName: 'Ahura Senku',
-                        moves: ['M→↓↘', 'Px3'],
+                        motions: ['M→↓↘', 'Px3'],
                     },
                     {
                         name: 'Teleport - Approach (short)',
                         originalName: 'Ahura Senku',
-                        moves: ['M→↓↘', 'Kx3'],
+                        motions: ['M→↓↘', 'Kx3'],
                     },
                     {
                         name: 'Teleport - Retreat (far)',
                         originalName: 'Ahura Senku',
-                        moves: ['M←↓↙', 'Px3'],
+                        motions: ['M←↓↙', 'Px3'],
                     },
                     {
                         name: 'Teleport - Retreat (short)',
                         originalName: 'Ahura Senku',
-                        moves: ['M←↓↙', 'Kx3'],
+                        motions: ['M←↓↙', 'Kx3'],
+                    },
+                    {
+                        name: 'Raging Demon',
+                        originalName: 'Shun Goku Satsu',
+                        motions: ['P1', 'P1', 'M←', 'K1', 'P3'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Wrath of the Raging Demon',
+                        originalName: 'Shin Shun Goku Satsu',
+                        motions: ['P1', 'P1', 'M←', 'K1', 'P3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Demon Armageddon',
+                        motions: ['M↑', 'M↑', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -432,19 +427,84 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 900,
                 country: 'China',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                // TODO: Gen has 2 styles of battle
+                // TODO: need to change data structure
+                moves: [
+                    // 🥷 : Mantis moves
+                    {
+                        name: 'Mantis Style',
+                        motions: ['Px3'],
+                    },
+                    {
+                        name: 'Gekiro',
+                        originalName: 'Mantis only',
+                        motions: ['M→↓↘', 'K'],
+                    },
+                    {
+                        name: 'Rapid Hands',
+                        originalName: 'Mantis only',
+                        motions: ['P', 'P', 'P', 'P'],
+                    },
+                    {
+                        name: "Zan 'Ei",
+                        originalName: 'Mantis only',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Zetsuei',
+                        originalName: 'Mantis only',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Shitkenketsu',
+                        originalName: 'Mantis only',
+                        motions: ['M↓↙←', 'M↓↙←', 'Px3'],
+                        type: 'ultra2',
+                    },
+                    // 🥷 : Crane moves
+                    {
+                        name: 'Crane Style',
+                        motions: ['Kx3'],
+                    },
+                    {
+                        name: 'Jyasen',
+                        originalName: 'Crane only',
+                        motions: ['MC←→', 'P'],
+                    },
+                    {
+                        // OGA + BUTTON = Special attack
+                        // Sudden Stop: Back after Oga
+                        // Close Kick: Down after Oga
+                        // Far Kick: Down-Forward or Forward after Oga
+                        // Ceiling Jump: Up-Back or Up or Up-Forward after Oga
+                        // Falling Kick: Down After Ceiling Jump
+                        // Close Range Kick Right: Down-forward or Forward after Ceiling Jump
+                        // Close Range Kick Left: Down-Back or Back after Ceiling Jump
+                        name: 'Oga',
+                        originalName: 'Crane only',
+                        motions: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Jyakoha',
+                        originalName: 'Crane only',
+                        motions: ['M↓↘→', 'M↓↘→', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Ryukoha',
+                        originalName: 'Crane only',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Teiga',
+                        originalName: 'Crane only',
+                        motions: ['J', 'M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'dan',
@@ -453,19 +513,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 900,
                 country: 'Hong_Kong',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'sakura',
@@ -474,19 +522,7 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 1000,
                 country: 'Japan',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'yun',
@@ -495,19 +531,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 1000,
                 country: 'Hong_Kong',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'juri',
@@ -516,19 +540,7 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 950,
                 country: 'South_Korea',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'chun-li',
@@ -537,19 +549,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 1050,
                 country: 'China',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'dhalsim',
@@ -558,19 +558,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 900,
                 country: 'India',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'abel',
@@ -579,19 +567,7 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1050,
                 country: 'France',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'c-viper',
@@ -600,19 +576,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 950,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'm-bison',
@@ -621,19 +585,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 950,
                 country: 'None',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'sagat',
@@ -642,38 +594,41 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1000,
                 country: 'Thailand',
-                ultra1: {
-                    name: 'Tiger Destruction',
-                    moves: ['M↓↘→', 'M↓↘→', 'Kx3'],
-                },
-                ultra2: {
-                    name: 'Tiger Cannon',
-                    moves: ['M↓↘→', 'M↓↘→', 'Px3'],
-                },
-                super: {
-                    name: 'Tiger Genocide',
-                    moves: ['M↓↘→', 'M↓↘→', 'K'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Tiger Uppercut',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Tiger Knee',
-                        moves: ['M→↓↘', 'K'],
+                        motions: ['M→↓↘', 'K'],
                     },
                     {
                         name: 'Tiger Shot (High)',
-                        moves: ['M↓↘→', 'P'],
+                        motions: ['M↓↘→', 'P'],
                     },
                     {
                         name: 'Tiger Shot (Low)\n',
-                        moves: ['M↓↘→', 'K'],
+                        motions: ['M↓↘→', 'K'],
                     },
                     {
                         name: 'Angry Scar',
-                        moves: ['M↓↙←', 'M↓↙←', 'K'],
+                        motions: ['M↓↙←', 'M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Tiger Genocide',
+                        motions: ['M↓↘→', 'M↓↘→', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Tiger Destruction',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Tiger Cannon',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -684,19 +639,7 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 950,
                 country: 'UK',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'dee-jay',
@@ -705,19 +648,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1000,
                 country: 'Jamaica',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'cody',
@@ -726,19 +657,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1050,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'guy',
@@ -747,19 +666,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 950,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'hakan',
@@ -768,19 +675,7 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1100,
                 country: 'Turkey',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'yang',
@@ -789,19 +684,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 1000,
                 country: 'Hong_Kong',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'guile',
@@ -810,19 +693,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 900,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'blanka',
@@ -831,19 +702,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 950,
                 country: 'Brazil',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'zangief',
@@ -852,34 +711,37 @@ export const data: Game[] = [
                 stamina: 1100,
                 stun: 1100,
                 country: 'USSR',
-                ultra1: {
-                    name: 'Ultra Atomic Buster',
-                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Px3'],
-                },
-                ultra2: {
-                    name: 'Siberian Blizzard',
-                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Kx3'],
-                },
-                super: {
-                    name: 'Final Atomic Buster',
-                    moves: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'K'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Spinning Pile Driver',
-                        moves: ['M←↙↓↘→↗↑', 'P'],
+                        motions: ['M←↙↓↘→↗↑', 'P'],
                     },
                     {
                         name: 'Banishing Flat',
-                        moves: ['M→↓↘', 'P'],
+                        motions: ['M→↓↘', 'P'],
                     },
                     {
                         name: 'Spinning Lariat',
-                        moves: ['Px3'],
+                        motions: ['Px3'],
                     },
                     {
                         name: 'Quick Lariat',
-                        moves: ['Kx3'],
+                        motions: ['Kx3'],
+                    },
+                    {
+                        name: 'Final Atomic Buster',
+                        motions: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Ultra Atomic Buster',
+                        motions: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Siberian Blizzard',
+                        motions: ['M←↙↓↘→↗↑', 'M←↙↓↘→↗↑', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -890,19 +752,7 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 950,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'el-fuerte',
@@ -911,19 +761,7 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 1000,
                 country: 'Mexico',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'vega',
@@ -932,44 +770,47 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 900,
                 country: 'Spain',
-                ultra1: {
-                    name: 'Bloody High Claw',
-                    moves: ['MC↙↘', 'M↗', 'Kx3'],
-                },
-                ultra2: {
-                    name: 'Splendid Claw',
-                    moves: ['MC↙→', 'M←→', 'Kx3'],
-                },
-                super: {
-                    name: 'Flying Barcelona Special',
-                    moves: ['MC↙↘', 'M↗', 'K'],
-                },
-                specials: [
+                moves: [
                     {
                         name: 'Rolling Crystal Flash',
-                        moves: ['MC←→', 'P'],
+                        motions: ['MC←→', 'P'],
                     },
                     {
                         // *ARMOR BREAKING*
                         name: 'Scarlet Terror',
-                        moves: ['MC↙→', 'K'],
+                        motions: ['MC↙→', 'K'],
                     },
                     {
                         // *EX HAS ARMOR BREAKING*
                         name: 'Sky High Claw',
-                        moves: ['MC↓↑', 'P'],
+                        motions: ['MC↓↑', 'P'],
                     },
                     {
                         name: 'Flying Barcelona Attack',
-                        moves: ['MC↓↑', 'K'],
+                        motions: ['MC↓↑', 'K'],
                     },
                     {
                         name: 'Short Back Flip',
-                        moves: ['Kx3'],
+                        motions: ['Kx3'],
                     },
                     {
                         name: 'Back Flip',
-                        moves: ['Px3'],
+                        motions: ['Px3'],
+                    },
+                    {
+                        name: 'Flying Barcelona Special',
+                        motions: ['MC↙↘', 'M↗', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Bloody High Claw',
+                        motions: ['MC↙↘', 'M↗', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Splendid Claw',
+                        motions: ['MC↙→', 'M←→', 'Kx3'],
+                        type: 'ultra2',
                     },
                 ],
             },
@@ -980,19 +821,7 @@ export const data: Game[] = [
                 stamina: 1050,
                 stun: 1000,
                 country: 'USA',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'fei-long',
@@ -1001,19 +830,7 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1050,
                 country: 'Hong_Kong',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 't-hawk',
@@ -1022,19 +839,7 @@ export const data: Game[] = [
                 stamina: 1100,
                 stun: 1100,
                 country: 'Mexico',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'adon',
@@ -1043,19 +848,7 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 1000,
                 country: 'Thailand',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
             {
                 id: 'rose',
@@ -1064,19 +857,7 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 1000,
                 country: 'Italy',
-                ultra1: {
-                    name: '',
-                    moves: [],
-                },
-                ultra2: {
-                    name: '',
-                    moves: [],
-                },
-                super: {
-                    name: '',
-                    moves: [],
-                },
-                specials: [],
+                moves: [],
             },
         ],
     },
