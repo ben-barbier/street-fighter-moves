@@ -606,12 +606,12 @@ export const data: Game[] = [
                     },
                     {
                         name: 'Senretsukyaku',
-                        motions: ['MC←→', 'M←', 'MC→', 'K'],
+                        motions: ['MC←→', 'M←→', 'K'],
                         type: 'super',
                     },
                     {
                         name: 'Housenka',
-                        motions: ['MC←→', 'M←', 'MC→', 'Kx3'],
+                        motions: ['MC←→', 'M←→', 'Kx3'],
                         type: 'ultra1',
                     },
                     {
@@ -718,7 +718,39 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 1000,
                 country: 'Jamaica',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Air Slasher',
+                        motions: ['MC←→', 'P'],
+                    },
+                    {
+                        name: 'Double Rolling Sobat',
+                        motions: ['MC←→', 'K'],
+                    },
+                    {
+                        name: 'Jackknife Maximum',
+                        motions: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Machinegun Upper',
+                        motions: ['MC↓↑', 'P'],
+                    },
+                    {
+                        name: 'Sobat Carnival',
+                        motions: ['MC←→', 'M←→', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Sobat Festival',
+                        motions: ['MC←→', 'M←→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Climax Beat',
+                        motions: ['MC↙↘', 'M↙↗', 'Px3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'cody',
@@ -869,12 +901,12 @@ export const data: Game[] = [
                     },
                     {
                         name: 'Flying Barcelona Special',
-                        motions: ['MC↙↘', 'M↗', 'K'],
+                        motions: ['MC↙↘', 'M↙↗', 'K'],
                         type: 'super',
                     },
                     {
                         name: 'Bloody High Claw',
-                        motions: ['MC↙↘', 'M↗', 'Kx3'],
+                        motions: ['MC↙↘', 'M↙↗', 'Kx3'],
                         type: 'ultra1',
                     },
                     {
