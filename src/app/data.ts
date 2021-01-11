@@ -585,7 +585,41 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 1050,
                 country: 'China',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Kikkoken',
+                        motions: ['MC←→', 'P'],
+                    },
+                    {
+                        name: 'Lightning Legs',
+                        originalName: 'Hyakuretsu Kyaku',
+                        motions: ['K', 'K', 'K', 'K'],
+                    },
+                    {
+                        name: 'Spinning Bird Kick',
+                        motions: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Overhead Flip Kick',
+                        originalName: 'Hazan Shu',
+                        motions: ['M→↘↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Senretsukyaku',
+                        motions: ['MC←→', 'M←', 'MC→', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Housenka',
+                        motions: ['MC←→', 'M←', 'MC→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Kikosho',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'dhalsim',
