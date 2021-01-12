@@ -22,13 +22,15 @@ jobs:
               run: |
                   npm ci
                   npm run lint
+                  npm run prettier:check
+                  npm run sitemap:generate
                   npm run build
             - name: Add server config
               env:
-                  serverConfigDir: 'server-config'
                   stagingDir: 'dist/street-fighter-moves'
               run: |
-                  cp $serverConfigDir/.htaccess $stagingDir
+                  cp server-config/.htaccess $stagingDir
+                  mv sitemap.xml $stagingDir
             - name: Setup
               run: sudo apt-get install lftp
             - name: Upload ftp
