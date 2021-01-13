@@ -795,7 +795,32 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 900,
                 country: 'USA',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Sonic Boom',
+                        motions: ['MC←→', 'P'],
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Flash Kick',
+                        motions: ['MC↓↑', 'K'],
+                    },
+                    {
+                        name: 'Double Flashkick',
+                        motions: ['MC↙↘', 'M↙↗', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Flash Explosion',
+                        motions: ['MC↙↘', 'M↙↗', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Sonic Hurricane',
+                        motions: ['MC←→', 'M←→', 'Px3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'blanka',
