@@ -1,3 +1,7 @@
+$special: #03a9f4;
+$super: #ffa000;
+$ultra: #d32f2f;
+
 :host {
     display: flex;
     flex-wrap: wrap;
@@ -45,6 +49,16 @@ table {
             font-size: 0.8em;
         }
     }
+
+    .motion {
+        display: flex;
+        align-items: center;
+
+        mat-icon {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+    }
 }
 
 .move {
@@ -54,17 +68,21 @@ table {
 .special {
     .title {
         color: white;
-        background-color: #03a9f4;
+        background-color: $special;
 
         .original-name {
             color: #b3e5fc;
         }
     }
+
+    &.followup .title {
+        background-color: lighten($special, 15%);
+    }
 }
 
 .super {
     .type {
-        color: #ffa000;
+        color: $super;
     }
     .title {
         color: white;
@@ -78,7 +96,7 @@ table {
 
 .ultra {
     .type {
-        color: #d32f2f;
+        color: $ultra;
     }
     .title {
         color: white;

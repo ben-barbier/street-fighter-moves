@@ -2,11 +2,13 @@
     <table>
         <ng-container *ngFor="let move of character.moves" [ngSwitch]="move.type">
             <tr class="super" *ngSwitchCase="'super'">
-                <td class="title combo">
-                    <div class="type">Super</div>
-                    <div class="vertical-align">
-                        <div class="name">{{ move.name }}</div>
-                        <div class="original-name">{{ move.originalName }}</div>
+                <td colspan="2">
+                    <div class="title combo">
+                        <div class="type">Super</div>
+                        <div class="vertical-align">
+                            <div class="name">{{ move.name }}</div>
+                            <div class="original-name">{{ move.originalName }}</div>
+                        </div>
                     </div>
                 </td>
                 <td>
@@ -14,11 +16,13 @@
                 </td>
             </tr>
             <tr class="ultra" *ngSwitchCase="'ultra1'">
-                <td class="title combo">
-                    <div class="type">Ultra 1</div>
-                    <div class="vertical-align">
-                        <div class="name">{{ move.name }}</div>
-                        <div class="original-name">{{ move.originalName }}</div>
+                <td colspan="2">
+                    <div class="title combo">
+                        <div class="type">Ultra 1</div>
+                        <div class="vertical-align">
+                            <div class="name">{{ move.name }}</div>
+                            <div class="original-name">{{ move.originalName }}</div>
+                        </div>
                     </div>
                 </td>
                 <td>
@@ -26,26 +30,54 @@
                 </td>
             </tr>
             <tr class="ultra" *ngSwitchCase="'ultra2'">
-                <td class="title combo">
-                    <div class="type">Ultra 2</div>
-                    <div class="vertical-align">
-                        <div class="name">{{ move.name }}</div>
-                        <div class="original-name">{{ move.originalName }}</div>
+                <td colspan="2">
+                    <div class="title combo">
+                        <div class="type">Ultra 2</div>
+                        <div class="vertical-align">
+                            <div class="name">{{ move.name }}</div>
+                            <div class="original-name">{{ move.originalName }}</div>
+                        </div>
                     </div>
                 </td>
                 <td>
                     <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
                 </td>
             </tr>
-            <tr class="special" *ngSwitchDefault>
-                <td class="title vertical-align">
-                    <div class="name">{{ move.name }}</div>
-                    <div class="original-name">{{ move.originalName }}</div>
-                </td>
-                <td>
-                    <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
-                </td>
-            </tr>
+            <ng-container *ngSwitchDefault>
+                <tr class="special">
+                    <td colspan="2">
+                        <div class="title vertical-align">
+                            <div class="name">{{ move.name }}</div>
+                            <div class="original-name">{{ move.originalName }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+                    </td>
+                </tr>
+                <tr class="special followup" *ngFor="let followUp of move.followUpList">
+                    <td>
+                        <mat-icon>subdirectory_arrow_right</mat-icon>
+                    </td>
+                    <td>
+                        <div class="title vertical-align">
+                            <div class="name">{{ followUp.name }}</div>
+                            <div class="original-name">{{ followUp.originalName }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="motion">
+                            <mat-icon>control_point</mat-icon>
+                            <img
+                                class="move"
+                                *ngFor="let motion of followUp.motions"
+                                [src]="'assets/moves/' + motion + '.png'"
+                                [alt]="motion"
+                            />
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
         </ng-container>
     </table>
 </ng-container>

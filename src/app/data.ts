@@ -19,6 +19,7 @@ export interface Move {
     originalName?: string;
     type?: 'super' | 'ultra1' | 'ultra2';
     motions: string[];
+    followUpList?: Move[];
 }
 
 export const data: Game[] = [
@@ -768,7 +769,53 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 950,
                 country: 'USA',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Bushin Senpukyaku',
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Bushin Izuna Otoshi',
+                        motions: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Hozanto',
+                        motions: ['M↓↙←', 'P'],
+                    },
+                    {
+                        name: 'Run',
+                        motions: ['M↓↘→', 'K'],
+                        followUpList: [
+                            {
+                                name: 'Sudden Stop',
+                                motions: ['K1'],
+                            },
+                            {
+                                name: 'Slide',
+                                motions: ['K2'],
+                            },
+                            {
+                                name: '2 Hits Attack',
+                                motions: ['K3'],
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Bushin Hasoken',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Bushin Goraisenpujin',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Bushin Muso Renge',
+                        motions: ['M→↘↓↙←', 'M→↘↓↙←', 'Px3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'hakan',
