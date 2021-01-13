@@ -16,11 +16,12 @@
     .other-countries-flags {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
         padding: 12px 0;
 
         a img {
-            height: 40px;
+            max-height: 45px;
+            max-width: 65px;
             margin: 3px 6px;
         }
     }
