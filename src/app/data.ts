@@ -609,7 +609,51 @@ export const data: Game[] = [
                 stamina: 1000,
                 stun: 900,
                 country: 'Hong_Kong',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Fireball',
+                        originalName: 'GADOKEN',
+                        motions: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Dragon Punch',
+                        originalName: 'KORYUKEN',
+                        motions: ['M→↓↘', 'P'],
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Dan Kicks',
+                        originalName: 'DANKUKYAKU',
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        // *ARMOR BREAKING*
+                        name: 'Dan Kicks',
+                        originalName: 'DANKUKYAKU',
+                        motions: ['J', 'M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'HISSHO BURAIKEN',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'LEGENDARY TAUNT',
+                        // TODO: P3 + K3 in same time
+                        motions: ['M↓↘→', 'M↓↘→', 'P3', 'K3'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'SHISSO BURAIKEN',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'HAOH GADOUKEN',
+                        motions: ['M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'sakura',
@@ -618,7 +662,52 @@ export const data: Game[] = [
                 stamina: 950,
                 stun: 1000,
                 country: 'Japan',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Fireball',
+                        originalName: 'Hadouken',
+                        motions: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Dragon Punch',
+                        originalName: 'Shouoken',
+                        motions: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Hurricane Kick',
+                        originalName: 'Shunpuu Kyaku',
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Sakura Otoshi',
+                        motions: ['M→↓↘', 'K'],
+                    },
+                    {
+                        name: 'Haru Ichiban',
+                        motions: ['M↓↙←', 'M↓↙←', 'K'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Haru Ranman',
+                        motions: ['M↓↙←', 'M↓↙←', 'Kx3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Ultra 2',
+                        motions: ['M↓↘→', 'M↓↘→'],
+                        followUpList: [
+                            {
+                                name: 'shinku hadouken (→)',
+                                motions: ['Px3'],
+                            },
+                            {
+                                name: 'tengyo hadouken (↗)',
+                                motions: ['Kx3'],
+                            },
+                        ],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'yun',

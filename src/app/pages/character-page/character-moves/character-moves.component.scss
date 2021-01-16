@@ -92,6 +92,10 @@ table {
             color: #ffecb3;
         }
     }
+
+    &.followup .title {
+        background-color: lighten($super, 15%);
+    }
 }
 
 .ultra {
@@ -105,5 +109,9 @@ table {
         .original-name {
             color: #ffcdd2;
         }
+    }
+
+    &.followup .title {
+        background-color: lighten($ultra, 15%);
     }
 }
