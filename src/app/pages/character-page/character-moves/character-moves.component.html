@@ -67,7 +67,7 @@
                     </td>
                     <td>
                         <div class="motion">
-                            <mat-icon>control_point</mat-icon>
+                            <mat-icon *ngIf="move.motions?.length">control_point</mat-icon>
                             <img
                                 class="move"
                                 *ngFor="let motion of followUp.motions"

@@ -18,7 +18,7 @@ export interface Move {
     name: string;
     originalName?: string;
     type?: 'super' | 'ultra1' | 'ultra2';
-    motions: string[];
+    motions?: string[];
     followUpList?: Move[];
 }
 
@@ -328,7 +328,64 @@ export const data: Game[] = [
                 stamina: 800,
                 stun: 900,
                 country: 'None',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Sonic Boom',
+                        motions: ['M↓↘→', 'P'],
+                    },
+                    {
+                        name: 'Shoryuken',
+                        motions: ['M→↓↘', 'P'],
+                    },
+                    {
+                        name: 'Hyakuretsukyaku',
+                        motions: ['M↓↙←', 'K'],
+                    },
+                    {
+                        name: 'Tanden Engine',
+                        motions: ['M↓↙←', 'P'],
+                    },
+                    {
+                        name: 'Spinning Piledriver',
+                        motions: ['M←↙↓↘→↗↑', 'P'],
+                    },
+                    {
+                        name: 'Yoga Teleport',
+                        followUpList: [
+                            {
+                                name: 'Approach (far)',
+                                motions: ['M→↓↘', 'Px3'],
+                            },
+                            {
+                                name: 'Approach (short)',
+                                motions: ['M→↓↘', 'Kx3'],
+                            },
+                            {
+                                name: 'Retreat (far)',
+                                motions: ['M←↓↙', 'Px3'],
+                            },
+                            {
+                                name: 'Retreat (short)',
+                                motions: ['M←↓↙', 'Kx3'],
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Tanden Storm',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Tanden Stream',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Tanden Typhoon',
+                        motions: ['M↓↙←', 'M↓↙←', 'Px3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'gouken',
@@ -419,24 +476,26 @@ export const data: Game[] = [
                         motions: ['M→↓↘', 'K'],
                     },
                     {
-                        name: 'Teleport - Approach (far)',
+                        name: 'Teleport',
                         originalName: 'Ahura Senku',
-                        motions: ['M→↓↘', 'Px3'],
-                    },
-                    {
-                        name: 'Teleport - Approach (short)',
-                        originalName: 'Ahura Senku',
-                        motions: ['M→↓↘', 'Kx3'],
-                    },
-                    {
-                        name: 'Teleport - Retreat (far)',
-                        originalName: 'Ahura Senku',
-                        motions: ['M←↓↙', 'Px3'],
-                    },
-                    {
-                        name: 'Teleport - Retreat (short)',
-                        originalName: 'Ahura Senku',
-                        motions: ['M←↓↙', 'Kx3'],
+                        followUpList: [
+                            {
+                                name: 'Approach (far)',
+                                motions: ['M→↓↘', 'Px3'],
+                            },
+                            {
+                                name: 'Approach (short)',
+                                motions: ['M→↓↘', 'Kx3'],
+                            },
+                            {
+                                name: 'Retreat (far)',
+                                motions: ['M←↓↙', 'Px3'],
+                            },
+                            {
+                                name: 'Retreat (short)',
+                                motions: ['M←↓↙', 'Kx3'],
+                            },
+                        ],
                     },
                     {
                         name: 'Raging Demon',
