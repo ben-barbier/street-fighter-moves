@@ -1,7 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { LOCATION_INITIALIZED } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -44,7 +44,7 @@ import { NavComponent } from './shared/nav/nav.component';
         CountryPageComponent,
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         BrowserAnimationsModule,
         AppRoutingModule,
         GithubButtonModule,
@@ -68,14 +68,14 @@ import { NavComponent } from './shared/nav/nav.component';
             },
         }),
     ],
-    providers: [
-        {
-            provide: APP_INITIALIZER,
-            useFactory: loadTranslations,
-            deps: [TranslateService, Injector],
-            multi: true,
-        },
-    ],
+    // providers: [
+    //     {
+    //         provide: APP_INITIALIZER,
+    //         useFactory: loadTranslations,
+    //         deps: [TranslateService, Injector],
+    //         multi: true,
+    //     },
+    // ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

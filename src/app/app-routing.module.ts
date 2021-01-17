@@ -8,6 +8,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { CountryPageGuard } from './pages/country-page/country-page.guard';
 import { CountryPageResolver } from './pages/country-page/country-page.resolver';
 
+// 💡 : for prerender build, check angular.json "prerender" entry
 const routes: Routes = [
     {
         path: 'sf4',
@@ -32,7 +33,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(routes, {
+            initialNavigation: 'enabled',
+        }),
+    ],
     exports: [RouterModule],
 })
 export class AppRoutingModule {}
