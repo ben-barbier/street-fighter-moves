@@ -85,7 +85,7 @@ export function loadTranslations(translate: TranslateService, injector: Injector
         new Promise<any>((resolve: any) => {
             const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
             locationInitialized.then(() => {
-                const langToSet = 'fr';
+                const langToSet = navigator?.language?.split('-')[0] || 'fr';
                 translate.setDefaultLang('fr');
                 translate.use(langToSet).subscribe(
                     () => console.log(`Successfully initialized '${langToSet}' language.`),
