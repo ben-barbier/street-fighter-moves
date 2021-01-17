@@ -1,4 +1,4 @@
-<div *ngIf="character$ | async as character" @enter (swiperight)="gotoCharactersList()">
+<div *ngIf="character$ | async as character" @enter>
     <app-character-details
         [character]="character"
         [maxStamina]="maxStamina"

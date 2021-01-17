@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { slideInRightOnEnterAnimation } from 'angular-animations';
 import { Observable } from 'rxjs';
@@ -20,13 +20,7 @@ export class CharacterPageComponent implements OnDestroy {
     public maxStamina = maxStamina(1);
     public maxStun = maxStun(1);
 
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private title: Title,
-        private meta: Meta,
-        @Inject(DOCUMENT) private document: Document,
-    ) {
+    constructor(private route: ActivatedRoute, private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
         this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
             const titleText = `Street Fighter Moves - ${character.name}`;
             title.setTitle(titleText);
@@ -49,9 +43,5 @@ export class CharacterPageComponent implements OnDestroy {
 
     private removeMetaTags(): void {
         ['description', 'og:url', 'og:type', 'og:title', 'og:description', 'og:image'].forEach(tag => this.meta.removeTag(`name='${tag}'`));
-    }
-
-    public gotoCharactersList(): Promise<boolean> {
-        return this.router.navigate(['sf4']);
     }
 }

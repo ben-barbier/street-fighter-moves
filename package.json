@@ -1,6 +1,6 @@
 {
   "name": "street-fighter-moves",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -29,7 +29,6 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "angular-animations": "^0.11.0",
-    "hammerjs": "^2.0.8",
     "ng-github-button": "^11.0.1",
     "rxjs": "~6.6.0",
     "sitemap": "^6.3.5",
