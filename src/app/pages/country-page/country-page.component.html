@@ -1,13 +1,13 @@
 <div @enter>
     <div
         class="country-flag mat-elevation-z4"
-        [ngStyle]="{ background: 'url(assets/countries/' + characters[0].country + '.svg) center center/cover no-repeat' }"
+        [ngStyle]="{ background: 'url(assets/countries/' + country + '.svg) center center/cover no-repeat' }"
     >
         <div class="light">
-            <img class="mat-elevation-z3" [src]="'assets/countries/' + characters[0].country + '.svg'" [alt]="characters[0].country" />
+            <img class="mat-elevation-z3" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
             <div class="other-countries-flags">
                 <a *ngFor="let country of otherCountries" [routerLink]="['/sf4', 'countries', country]">
-                    <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="characters[0].country" />
+                    <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
                 </a>
             </div>
         </div>
