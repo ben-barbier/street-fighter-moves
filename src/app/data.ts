@@ -542,7 +542,7 @@ export const data: Game[] = [
                         motions: ['P', 'P', 'P', 'P'],
                     },
                     {
-                        name: "Zan 'Ei",
+                        name: `Zan 'Ei`,
                         originalName: 'Mantis only',
                         motions: ['M↓↘→', 'M↓↘→', 'P'],
                         type: 'super',
