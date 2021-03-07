@@ -29,6 +29,9 @@ import { ControlsComponent } from './shared/controls/controls.component';
 import { UpdateAppDialogComponent } from './shared/features/update-app/update-app-dialog/update-app-dialog.component';
 import { UpdateAppIndicatorComponent } from './shared/features/update-app/update-app-indicator/update-app-indicator.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -50,6 +53,7 @@ import { NavComponent } from './shared/nav/nav.component';
         GithubButtonModule,
         HttpClientModule,
         LayoutModule,
+        FormsModule,
         MatProgressBarModule,
         MatIconModule,
         MatToolbarModule,
@@ -59,6 +63,8 @@ import { NavComponent } from './shared/nav/nav.component';
         MatCardModule,
         MatDialogModule,
         MatMenuModule,
+        MatInputModule,
+        MatFormFieldModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
         TranslateModule.forRoot({
             loader: {

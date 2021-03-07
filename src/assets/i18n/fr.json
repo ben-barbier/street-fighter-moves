@@ -5,7 +5,8 @@
     },
     "nav": {
         "title": "Street Fighter Moves",
-        "list": "Personnages"
+        "list": "Personnages",
+        "no-results": "Aucun résultat"
     },
     "update-app-dialog": {
         "title": "Street Fighter Moves : nouvelle version disponible",

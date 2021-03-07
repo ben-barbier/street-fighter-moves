@@ -14,8 +14,10 @@ import { ControlsComponent } from '../controls/controls.component';
 })
 export class NavComponent {
     public characters = data[0].characters;
+    public filteredCharacters = [...this.characters];
     public version: string = version;
     public isHandset = false;
+    public search = '';
 
     constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog, private translate: TranslateService) {
         this.breakpointObserver
@@ -30,5 +32,14 @@ export class NavComponent {
 
     public setLang(lang: 'fr' | 'en'): void {
         this.translate.use(lang);
+    }
+
+    public filterCharacters(search: string): void {
+        this.filteredCharacters = this.characters.filter(character => character.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    public clearSearch(): void {
+        this.search = '';
+        this.filterCharacters('');
     }
 }
