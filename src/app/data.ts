@@ -500,7 +500,7 @@ export const data: Game[] = [
                     {
                         name: 'Raging Demon',
                         originalName: 'Shun Goku Satsu',
-                        motions: ['P1', 'P1', 'M←', 'K1', 'P3'],
+                        motions: ['P1', 'P1', 'M→', 'K1', 'P3'],
                         type: 'super',
                     },
                     {
