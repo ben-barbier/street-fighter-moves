@@ -5,6 +5,18 @@ on:
         branches:
             - main
 jobs:
+    e2e:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - uses: actions/setup-node@v1 #this installs node and npm for us
+              with:
+                  node-version: '14.x'
+            - name: E2E
+              run: |
+                  npm ci
+                  npm run cy:ci
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
@@ -23,6 +35,7 @@ jobs:
                   npm ci
                   npm run lint
                   npm run prettier:check
+                  npm run cy:ci
                   npm run sitemap:generate
                   npm run build
             - name: Add server config
