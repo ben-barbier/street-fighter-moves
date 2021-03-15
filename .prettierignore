@@ -1,11 +1,6 @@
 /*
 !/src
-
-!/e2e
-e2e/output
-e2e/features
-e2e/data
-e2e/allure-report
+!/cypress
 
 *.ico
 *.png
