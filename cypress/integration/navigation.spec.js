@@ -45,6 +45,7 @@ context('Navigation', () => {
         characters.forEach(character => {
             it(`${character.name} page exists`, () => {
                 cy.visit(`/sf4/characters/${character.slug}`).get('h1').contains(character.name);
+                cy.percySnapshot(character.name);
             });
         });
     });
