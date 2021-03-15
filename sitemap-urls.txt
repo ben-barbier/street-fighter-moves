@@ -15,7 +15,6 @@ https://street-fighter-moves.tech-homies.io/sf4/characters/dhalsim
 https://street-fighter-moves.tech-homies.io/sf4/characters/dudley
 https://street-fighter-moves.tech-homies.io/sf4/characters/e-honda
 https://street-fighter-moves.tech-homies.io/sf4/characters/el-fuerte
-https://street-fighter-moves.tech-homies.io/sf4/characters/evil-ryu
 https://street-fighter-moves.tech-homies.io/sf4/characters/fei-long
 https://street-fighter-moves.tech-homies.io/sf4/characters/gen
 https://street-fighter-moves.tech-homies.io/sf4/characters/gouken
@@ -27,7 +26,6 @@ https://street-fighter-moves.tech-homies.io/sf4/characters/juri
 https://street-fighter-moves.tech-homies.io/sf4/characters/ken
 https://street-fighter-moves.tech-homies.io/sf4/characters/m-bison
 https://street-fighter-moves.tech-homies.io/sf4/characters/makoto
-https://street-fighter-moves.tech-homies.io/sf4/characters/oni
 https://street-fighter-moves.tech-homies.io/sf4/characters/rose
 https://street-fighter-moves.tech-homies.io/sf4/characters/rufus
 https://street-fighter-moves.tech-homies.io/sf4/characters/ryu
