@@ -777,7 +777,23 @@ export const data: Game[] = [
                 stamina: 900,
                 stun: 900,
                 country: 'India',
-                moves: [],
+                moves: [
+                    {
+                        name: 'Yoga Inferno',
+                        motions: ['M↓↘→', 'M↓↘→', 'P'],
+                        type: 'super',
+                    },
+                    {
+                        name: 'Yoga Catasrophe',
+                        motions: ['M↓↘→', 'M↓↘→', 'Px3'],
+                        type: 'ultra1',
+                    },
+                    {
+                        name: 'Yoga Shangri-La',
+                        motions: ['J', 'M↓↘→', 'M↓↘→', 'Kx3'],
+                        type: 'ultra2',
+                    },
+                ],
             },
             {
                 id: 'abel',
