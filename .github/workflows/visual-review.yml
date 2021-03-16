@@ -1,0 +1,28 @@
+name: Visual Review (https://percy.io/)
+
+on:
+    push:
+        branches:
+            - '**'
+            - '!main'
+
+jobs:
+    visual-review:
+        runs-on: ubuntu-latest
+        env:
+            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        steps:
+            - name: Log
+              run: |
+                  echo GITHUB_ACTOR: ${GITHUB_ACTOR}
+                  echo GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
+                  echo REPOSITORY_PATH : ${REPOSITORY_PATH}
+            - name: Checkout
+              uses: actions/checkout@v2
+            - uses: actions/setup-node@v1 #this installs node and npm for us
+              with:
+                  node-version: '14.x'
+            - name: Percy
+              run: |
+                  npm ci
+                  npm run percy:ci
