@@ -25,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterDetailsComponent } from './pages/character-page/character-details/character-details.component';
 import { CharacterMovesComponent } from './pages/character-page/character-moves/character-moves.component';
+import { MotionsComponent } from './pages/character-page/character-moves/motions/motions.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
@@ -59,6 +60,7 @@ const loadTranslations = (translate: TranslateService, injector: Injector): (() 
         NavComponent,
         ControlsComponent,
         CountryPageComponent,
+        MotionsComponent,
     ],
     imports: [
         BrowserModule,

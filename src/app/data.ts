@@ -444,7 +444,6 @@ export const data: Game[] = [
                 stun: 850,
                 country: 'Japan',
                 moves: [
-                    // TODO: vérifier la différence entre super et ultra : https://www.eventhubs.com/motions/sf4/akuma/
                     {
                         name: 'Fireball',
                         originalName: 'Gou Hadouken',
@@ -500,13 +499,13 @@ export const data: Game[] = [
                     {
                         name: 'Raging Demon',
                         originalName: 'Shun Goku Satsu',
-                        motions: ['P1', 'P1', 'M→', 'K1', 'P3'],
+                        motions: ['P1', 'P1', 'M→', '[', 'K1', 'P3', ']'],
                         type: 'super',
                     },
                     {
                         name: 'Wrath of the Raging Demon',
                         originalName: 'Shin Shun Goku Satsu',
-                        motions: ['P1', 'P1', 'M←', 'K1', 'P3'],
+                        motions: ['P1', 'P1', 'M←', '[', 'K1', 'P3', ']'],
                         type: 'ultra1',
                     },
                     {
