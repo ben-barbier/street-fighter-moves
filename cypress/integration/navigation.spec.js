@@ -49,4 +49,36 @@ context('Navigation', () => {
             });
         });
     });
+
+    context('Countries', () => {
+        const countries = [
+            'Brazil',
+            'China',
+            'France',
+            'Hong_Kong',
+            'India',
+            'Italy',
+            'Jamaica',
+            'Japan',
+            'Mexico',
+            'None',
+            'South_Korea',
+            'Spain',
+            'Thailand',
+            'Turkey',
+            'UK',
+            'USA',
+            'USSR',
+        ];
+
+        countries.forEach(country => {
+            it(`${country} page exists`, () => {
+                cy.visit(`/sf4/countries/${country}`)
+                    .get('#flag')
+                    .should('have.attr', 'alt')
+                    .then(alt => expect(alt).eq(country));
+                cy.percySnapshot(country);
+            });
+        });
+    });
 });
