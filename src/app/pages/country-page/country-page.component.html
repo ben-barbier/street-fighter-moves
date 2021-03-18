@@ -4,7 +4,7 @@
         [ngStyle]="{ background: 'url(assets/countries/' + country + '.svg) center center/cover no-repeat' }"
     >
         <div class="light">
-            <img class="mat-elevation-z3" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
+            <img class="mat-elevation-z3" id="flag" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
             <div class="other-countries-flags">
                 <a *ngFor="let country of otherCountries" [routerLink]="['/sf4', 'countries', country]">
                     <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />

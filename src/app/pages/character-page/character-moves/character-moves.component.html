@@ -13,7 +13,7 @@
                         </div>
                     </td>
                     <td>
-                        <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+                        <app-motions [motions]="move.motions || []"></app-motions>
                     </td>
                 </tr>
                 <tr class="special followup" *ngFor="let followUp of move.followUpList">
@@ -29,12 +29,7 @@
                     <td>
                         <div class="motion">
                             <mat-icon *ngIf="move.motions?.length">control_point</mat-icon>
-                            <img
-                                class="move"
-                                *ngFor="let motion of followUp.motions"
-                                [src]="'assets/moves/' + motion + '.png'"
-                                [alt]="motion"
-                            />
+                            <app-motions [motions]="followUp.motions || []"></app-motions>
                         </div>
                     </td>
                 </tr>
@@ -51,7 +46,7 @@
                         </div>
                     </td>
                     <td>
-                        <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+                        <app-motions [motions]="move.motions || []"></app-motions>
                     </td>
                 </tr>
                 <tr class="special followup" *ngFor="let followUp of move.followUpList">
@@ -67,12 +62,7 @@
                     <td>
                         <div class="motion">
                             <mat-icon *ngIf="move.motions?.length">control_point</mat-icon>
-                            <img
-                                class="move"
-                                *ngFor="let motion of followUp.motions"
-                                [src]="'assets/moves/' + motion + '.png'"
-                                [alt]="motion"
-                            />
+                            <app-motions [motions]="followUp.motions || []"></app-motions>
                         </div>
                     </td>
                 </tr>
@@ -89,7 +79,7 @@
                         </div>
                     </td>
                     <td>
-                        <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+                        <app-motions [motions]="move.motions || []"></app-motions>
                     </td>
                 </tr>
                 <tr class="ultra followup" *ngFor="let followUp of move.followUpList">
@@ -105,12 +95,7 @@
                     <td>
                         <div class="motion">
                             <mat-icon *ngIf="move.motions?.length">control_point</mat-icon>
-                            <img
-                                class="move"
-                                *ngFor="let motion of followUp.motions"
-                                [src]="'assets/moves/' + motion + '.png'"
-                                [alt]="motion"
-                            />
+                            <app-motions [motions]="followUp.motions || []"></app-motions>
                         </div>
                     </td>
                 </tr>
@@ -124,7 +109,7 @@
                         </div>
                     </td>
                     <td>
-                        <img class="move" *ngFor="let motion of move.motions" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+                        <app-motions [motions]="move.motions || []"></app-motions>
                     </td>
                 </tr>
                 <tr class="special followup" *ngFor="let followUp of move.followUpList">
@@ -140,12 +125,7 @@
                     <td>
                         <div class="motion">
                             <mat-icon *ngIf="move.motions?.length">control_point</mat-icon>
-                            <img
-                                class="move"
-                                *ngFor="let motion of followUp.motions"
-                                [src]="'assets/moves/' + motion + '.png'"
-                                [alt]="motion"
-                            />
+                            <app-motions [motions]="followUp.motions || []"></app-motions>
                         </div>
                     </td>
                 </tr>
