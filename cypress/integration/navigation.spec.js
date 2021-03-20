@@ -1,6 +1,14 @@
 /// <reference types="cypress" />
 
 context('Navigation', () => {
+    context('Characters List', () => {
+        it(`Characters List page contains all characters`, () => {
+            const numberOfCharacters = 37;
+            cy.visit(`/sf4`).get('ul').find('li').should('have.length', numberOfCharacters);
+            cy.percySnapshot('Characters List');
+        });
+    });
+
     context('Characters', () => {
         const characters = [
             { slug: 'abel', name: 'Abel' },
