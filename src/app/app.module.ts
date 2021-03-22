@@ -34,11 +34,14 @@ import { UpdateAppDialogComponent } from './shared/features/update-app/update-ap
 import { UpdateAppIndicatorComponent } from './shared/features/update-app/update-app-indicator/update-app-indicator.component';
 import { NavComponent } from './shared/nav/nav.component';
 
+const availableLanguages = ['fr', 'en'];
+
 const loadTranslations = (translate: TranslateService, injector: Injector): (() => Promise<any>) => () =>
     new Promise<any>((resolve: any) => {
         const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
         locationInitialized.then(() => {
-            const langToSet = navigator?.language?.split('-')[0] || 'fr';
+            const browserLanguage = navigator?.language?.split('-')[0];
+            const langToSet = availableLanguages.find(l => l === browserLanguage) || 'en';
             translate.setDefaultLang('fr');
             translate.use(langToSet).subscribe(
                 () => console.log(`Successfully initialized '${langToSet}' language.`),
