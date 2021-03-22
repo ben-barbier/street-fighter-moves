@@ -23,6 +23,7 @@ jobs:
                   npm ci
                   npm run lint
                   npm run prettier:check
+                  npm run cy:ci
                   npm run sitemap:generate
                   npm run build
             - name: Add server config
