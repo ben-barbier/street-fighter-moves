@@ -1,5 +1,5 @@
 <ng-container *ngFor="let motion of motions">
-    <img *ngIf="displayImage(motion); else noImage" class="move" [src]="'assets/moves/' + motion + '.png'" [alt]="motion" />
+    <img *ngIf="displayImage(motion); else noImage" class="move" [src]="'assets/motions/' + motion + '.png'" [alt]="motion" />
     <ng-template #noImage>
         <span>{{ motion }}</span>
     </ng-template>
