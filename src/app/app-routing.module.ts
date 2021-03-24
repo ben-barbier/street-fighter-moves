@@ -12,21 +12,18 @@ const routes: Routes = [
     {
         path: 'sf4',
         component: CharactersListPageComponent,
-        data: { animation: 'ListPage' },
     },
     {
         path: 'sf4/characters/:characterId',
         component: CharacterPageComponent,
         canActivate: [CharacterPageGuard],
         resolve: { character: CharacterPageResolver },
-        data: { animation: 'CharacterPage' },
     },
     {
         path: 'sf4/countries/:country',
         component: CountryPageComponent,
         canActivate: [CountryPageGuard],
         resolve: { character: CountryPageResolver },
-        data: { animation: 'CountryPage' },
     },
     { path: '**', redirectTo: '/sf4' },
 ];
