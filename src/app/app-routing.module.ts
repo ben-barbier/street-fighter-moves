@@ -7,8 +7,13 @@ import { CharactersListPageComponent } from './pages/characters-list-page/charac
 import { CountryPageComponent } from './pages/country-page/country-page.component';
 import { CountryPageGuard } from './pages/country-page/country-page.guard';
 import { CountryPageResolver } from './pages/country-page/country-page.resolver';
+import { MovesEditorPageComponent } from './pages/editor-page/moves-editor-page.component';
 
 const routes: Routes = [
+    {
+        path: 'moves-editor',
+        component: MovesEditorPageComponent,
+    },
     {
         path: 'sf4',
         component: CharactersListPageComponent,

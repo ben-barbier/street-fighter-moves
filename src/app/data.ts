@@ -18,9 +18,12 @@ export interface Move {
     name: string;
     originalName?: string;
     type?: 'super' | 'ultra1' | 'ultra2';
-    motions?: string[];
+    motions?: (Motion | SpecialMotion)[];
     followUpList?: Move[];
 }
+
+export type Motion = string;
+export type SpecialMotion = { type: 'charge' | 'simultaneous'; motions: string[] };
 
 export const data: Game[] = [
     {
@@ -499,13 +502,13 @@ export const data: Game[] = [
                     {
                         name: 'Raging Demon',
                         originalName: 'Shun Goku Satsu',
-                        motions: ['P1', 'P1', 'M→', '[', 'K1', 'P3', ']'],
+                        motions: ['P1', 'P1', 'M→', { type: 'simultaneous', motions: ['K1', 'P3'] }],
                         type: 'super',
                     },
                     {
                         name: 'Wrath of the Raging Demon',
                         originalName: 'Shin Shun Goku Satsu',
-                        motions: ['P1', 'P1', 'M←', '[', 'K1', 'P3', ']'],
+                        motions: ['P1', 'P1', 'M←', { type: 'simultaneous', motions: ['K1', 'P3'] }],
                         type: 'ultra1',
                     },
                     {

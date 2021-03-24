@@ -1,0 +1,39 @@
+<section @enter>
+    <form [formGroup]="addMoveForm" (ngSubmit)="addMove()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" (ngModelChange)="currentMove.name = $event" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Original Name</mat-label>
+            <input matInput formControlName="originalName" (ngModelChange)="currentMove.originalName = $event" />
+        </mat-form-field>
+
+        <!-- TODO: type (super/combo/ultra)-->
+
+        <section>
+            <button mat-stroked-button type="button" *ngFor="let motion of motions.punchs" (click)="addMotionToMove(motion)">
+                <img [src]="'assets/motions/' + motion" />
+            </button>
+        </section>
+        <section>
+            <button mat-stroked-button type="button" *ngFor="let motion of motions.kicks" (click)="addMotionToMove(motion)">
+                <img [src]="'assets/motions/' + motion" />
+            </button>
+        </section>
+        <!-- TODO: CSS       -->
+        <section style="max-width: 500px">
+            <button mat-stroked-button type="button" *ngFor="let motion of motions.motions" (click)="addMotionToMove(motion)">
+                <img [src]="'assets/motions/' + motion" />
+            </button>
+        </section>
+
+        <button mat-raised-button color="danger" type="button" (click)="removeLastMotionOfMove()">Back</button>
+        <button mat-raised-button color="primary" [disabled]="addMoveForm.invalid" type="submit">Add Motion</button>
+    </form>
+    <h3>currentMove</h3>
+    <pre>{{ currentMove | json }}</pre>
+    <h3>moves</h3>
+    <pre>{{ moves | json }}</pre>
+</section>

@@ -2,7 +2,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { LOCATION_INITIALIZED } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -29,6 +29,7 @@ import { MotionsComponent } from './pages/character-page/character-moves/motions
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { MovesEditorPageComponent } from './pages/editor-page/moves-editor-page.component';
 import { ControlsComponent } from './shared/controls/controls.component';
 import { UpdateAppDialogComponent } from './shared/features/update-app/update-app-dialog/update-app-dialog.component';
 import { UpdateAppIndicatorComponent } from './shared/features/update-app/update-app-indicator/update-app-indicator.component';
@@ -64,9 +65,11 @@ const loadTranslations = (translate: TranslateService, injector: Injector): (() 
         ControlsComponent,
         CountryPageComponent,
         MotionsComponent,
+        MovesEditorPageComponent,
     ],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         GithubButtonModule,
