@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
-import { version } from '../../../../package.json';
+import pkg from '../../../../package.json';
 import { data } from '../../data';
 import { ControlsComponent } from '../controls/controls.component';
 
@@ -15,7 +15,7 @@ import { ControlsComponent } from '../controls/controls.component';
 export class NavComponent {
     public characters = data[0].characters;
     public filteredCharacters = [...this.characters];
-    public version: string = version;
+    public version: string = pkg.version;
     public isHandset = false;
     public search = '';
 
