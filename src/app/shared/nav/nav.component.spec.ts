@@ -12,22 +12,20 @@ describe('NavComponent', () => {
     let component: NavComponent;
     let fixture: ComponentFixture<NavComponent>;
 
-    beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
-                declarations: [NavComponent],
-                imports: [
-                    NoopAnimationsModule,
-                    LayoutModule,
-                    MatButtonModule,
-                    MatIconModule,
-                    MatListModule,
-                    MatSidenavModule,
-                    MatToolbarModule,
-                ],
-            }).compileComponents();
-        }),
-    );
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [NavComponent],
+            imports: [
+                NoopAnimationsModule,
+                LayoutModule,
+                MatButtonModule,
+                MatIconModule,
+                MatListModule,
+                MatSidenavModule,
+                MatToolbarModule,
+            ],
+        }).compileComponents();
+    }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(NavComponent);

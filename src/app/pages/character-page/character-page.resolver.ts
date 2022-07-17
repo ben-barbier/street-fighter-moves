@@ -8,6 +8,6 @@ import { Character, data } from '../../data';
 })
 export class CharacterPageResolver implements Resolve<Character> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Character> {
-        return of(data[0].characters.find(c => c.id === route.params.characterId) as Character);
+        return of(data[0].characters.find(c => c.id === route.params['characterId']) as Character);
     }
 }

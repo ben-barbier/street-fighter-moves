@@ -16,7 +16,7 @@ import { Character, maxStamina, maxStun } from '../../data';
     animations: [slideInRightOnEnterAnimation({ anchor: 'enter', duration: 600 })],
 })
 export class CharacterPageComponent implements OnDestroy {
-    public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData.character));
+    public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData['character']));
     public maxStamina = maxStamina(1);
     public maxStun = maxStun(1);
 

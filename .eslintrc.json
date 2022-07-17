@@ -1,19 +1,13 @@
 {
     "root": true,
-    "ignorePatterns": ["projects/**/*"],
     "overrides": [
         {
             "files": ["*.ts"],
-            "parserOptions": {
-                "project": ["tsconfig.json"],
-                "createDefaultProgram": true
-            },
             "extends": [
                 "plugin:@angular-eslint/recommended",
                 "plugin:@angular-eslint/template/process-inline-templates",
                 "plugin:prettier/recommended"
-            ],
-            "rules": {}
+            ]
         },
         // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
         {
@@ -27,8 +21,8 @@
             "excludedFiles": ["*inline-template-*.component.html"],
             "extends": ["plugin:prettier/recommended"],
             "rules": {
-                // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO HTML (SEE BELOW)
-                "prettier/prettier": ["error", { "parser": "html" }]
+                // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+                "prettier/prettier": ["error", { "parser": "angular" }]
             }
         }
     ]

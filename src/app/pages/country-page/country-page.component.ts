@@ -19,7 +19,7 @@ export class CountryPageComponent implements OnDestroy {
     public otherCountries: string[] = [];
 
     constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) {
-        this.route.data.pipe(map(resolveData => resolveData.character)).subscribe(characters => {
+        this.route.data.pipe(map(resolveData => resolveData['character'])).subscribe(characters => {
             this.country = characters[0].country;
             this.characters = characters;
             this.otherCountries = [...new Set(countries(1).filter(c => c !== this.characters[0].country))];
