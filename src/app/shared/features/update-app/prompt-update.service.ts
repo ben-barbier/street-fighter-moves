@@ -15,12 +15,12 @@ export class PromptUpdateService {
         if (this.updates.isEnabled) {
             updates.available.subscribe(() => {
                 this.appHasUpdateAvailable$.next(true);
-                this.promptUpdateDilog();
+                this.promptUpdateDialog();
             });
         }
     }
 
-    public promptUpdateDilog(): void {
+    public promptUpdateDialog(): void {
         this.dialog
             .open(UpdateAppDialogComponent)
             .afterClosed()

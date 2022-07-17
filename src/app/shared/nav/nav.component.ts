@@ -15,7 +15,7 @@ import { ControlsComponent } from '../controls/controls.component';
 export class NavComponent {
     public characters = data[0].characters;
     public filteredCharacters = [...this.characters];
-    public version: string = pkg.version;
+    public version: string = pkg?.version;
     public isHandset = false;
     public search = '';
 
