@@ -13,7 +13,8 @@
         "percy:ci": "percy exec -- npm run cy:ci",
         "prettier": "prettier --write \"**\"",
         "prettier:check": "prettier --check \"**\"",
-        "sitemap:generate": "sitemap < sitemap-urls.txt > sitemap.xml"
+        "sitemap:generate": "sitemap < sitemap-urls.txt > sitemap.xml",
+        "e2e": "ng e2e"
     },
     "private": true,
     "dependencies": {
@@ -47,6 +48,8 @@
         "@angular-eslint/template-parser": "^14.0.2",
         "@angular/cli": "^14.0.6",
         "@angular/compiler-cli": "^14.0.6",
+        "@cypress/schematic": "^2.0.0",
+        "@percy/cli": "^1.6.1",
         "@percy/cypress": "^3.1.2",
         "@types/jasmine": "~4.0.0",
         "@types/node": "^16.11.45",

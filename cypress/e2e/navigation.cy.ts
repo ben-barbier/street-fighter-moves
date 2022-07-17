@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 context('Navigation', () => {
     context('Characters List', () => {
         it(`Characters List page contains all characters`, () => {
