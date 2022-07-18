@@ -14,10 +14,10 @@ jobs:
                   echo GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
                   echo REPOSITORY_PATH : ${REPOSITORY_PATH}
             - name: Checkout
-              uses: actions/checkout@v2
-            - uses: actions/setup-node@v1 #this installs node and npm for us
+              uses: actions/checkout@v3
+            - uses: actions/setup-node@v3 #this installs node and npm for us
               with:
-                  node-version: '16.x'
+                  node-version: 16
             - name: Build
               run: |
                   npm ci
