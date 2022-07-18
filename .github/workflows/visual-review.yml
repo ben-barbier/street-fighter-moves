@@ -1,4 +1,4 @@
-name: Visual Review (https://percy.io/)
+name: Visual Review fot non-main branches (https://percy.io/)
 
 on:
     push:
