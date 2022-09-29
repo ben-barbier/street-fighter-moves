@@ -1,16 +1,46 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { TranslateService } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { GithubButtonComponent } from 'ng-github-button';
 import { map } from 'rxjs/operators';
 import pkg from '../../../../package.json';
 import { data } from '../../data';
 import { ControlsComponent } from '../controls/controls.component';
+import { UpdateAppIndicatorComponent } from '../features/update-app/update-app-indicator/update-app-indicator.component';
 
 @Component({
     selector: 'app-nav',
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        MatSidenavModule,
+        MatIconModule,
+        RouterLinkWithHref,
+        FormsModule,
+        MatListModule,
+        MatButtonModule,
+        MatInputModule,
+        TranslateModule,
+        GithubButtonComponent,
+        MatToolbarModule,
+        MatMenuModule,
+        RouterOutlet,
+        UpdateAppIndicatorComponent,
+    ],
 })
 export class NavComponent {
     public characters = data[0].characters;

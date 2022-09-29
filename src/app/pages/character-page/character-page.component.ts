@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +7,8 @@ import { slideInRightOnEnterAnimation } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Character, maxStamina, maxStun } from '../../data';
+import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { CharacterMovesComponent } from './character-moves/character-moves.component';
 
 @UntilDestroy()
 @Component({
@@ -14,6 +16,8 @@ import { Character, maxStamina, maxStun } from '../../data';
     templateUrl: './character-page.component.html',
     styleUrls: ['./character-page.component.scss'],
     animations: [slideInRightOnEnterAnimation({ anchor: 'enter', duration: 600 })],
+    standalone: true,
+    imports: [NgIf, AsyncPipe, CharacterDetailsComponent, CharacterMovesComponent],
 })
 export class CharacterPageComponent implements OnDestroy {
     public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData['character']));
@@ -33,7 +37,10 @@ export class CharacterPageComponent implements OnDestroy {
             meta.updateTag({ name: 'og:type', content: 'website' });
             meta.updateTag({ name: 'og:title', content: titleText });
             meta.updateTag({ name: 'og:description', content: description });
-            meta.updateTag({ name: 'og:image', content: `${document.baseURI}assets/characters/${character.id}_thumbnail.png` });
+            meta.updateTag({
+                name: 'og:image',
+                content: `${document.baseURI}assets/characters/${character.id}_thumbnail.png`,
+            });
         });
     }
 

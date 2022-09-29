@@ -1,10 +1,17 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { Character } from '../../../data';
 
 @Component({
     selector: 'app-character-details',
     templateUrl: './character-details.component.html',
     styleUrls: ['./character-details.component.scss'],
+    standalone: true,
+    imports: [MatCardModule, MatProgressBarModule, RouterModule, TranslateModule, NgIf],
 })
 export class CharacterDetailsComponent {
     @Input() character: Character | undefined;
