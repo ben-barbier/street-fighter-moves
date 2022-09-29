@@ -11,8 +11,8 @@
     "cy:run": "cypress run",
     "cy:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start http-get://localhost:4200 cy:run",
     "percy:ci": "percy exec -- npm run cy:ci",
-        "prettier": "prettier --write \"**\"",
-        "prettier:check": "prettier --check \"**\"",
+    "fmt": "prettier --write \"**\"",
+    "fmt:check": "prettier --check \"**\"",
     "sitemap:generate": "sitemap < sitemap-urls.txt > sitemap.xml",
     "e2e": "ng e2e"
   },
