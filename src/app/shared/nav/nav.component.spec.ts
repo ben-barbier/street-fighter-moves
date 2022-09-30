@@ -26,8 +26,9 @@ describe('NavComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [NavComponent, UpdateAppIndicatorComponent],
             imports: [
+                NavComponent,
+                UpdateAppIndicatorComponent,
                 NoopAnimationsModule,
                 FormsModule,
                 GithubButtonModule,
