@@ -3,7 +3,6 @@ import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { slideInRightOnEnterAnimation } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Character, maxStamina, maxStun } from '../../data';
@@ -15,7 +14,6 @@ import { CharacterMovesComponent } from './character-moves/character-moves.compo
     selector: 'app-character-page',
     templateUrl: './character-page.component.html',
     styleUrls: ['./character-page.component.scss'],
-    animations: [slideInRightOnEnterAnimation({ anchor: 'enter', duration: 600 })],
     standalone: true,
     imports: [NgIf, AsyncPipe, CharacterDetailsComponent, CharacterMovesComponent],
 })

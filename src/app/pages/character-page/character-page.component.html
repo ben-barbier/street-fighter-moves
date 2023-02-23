@@ -1,4 +1,4 @@
-<div *ngIf="character$ | async as character" @enter>
+<ng-container *ngIf="character$ | async as character">
     <app-character-details
         [character]="character"
         [maxStamina]="maxStamina"
@@ -6,4 +6,4 @@
         [countryLinkActive]="true"
     ></app-character-details>
     <app-character-moves [character]="character"></app-character-moves>
-</div>
+</ng-container>

@@ -2,14 +2,12 @@ import { DOCUMENT, NgFor } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLinkWithHref } from '@angular/router';
-import { slideInLeftOnEnterAnimation } from 'angular-animations';
 import { Character, data } from '../../data';
 
 @Component({
     selector: 'app-characters-list-page',
     templateUrl: './characters-list-page.component.html',
     styleUrls: ['./characters-list-page.component.scss'],
-    animations: [slideInLeftOnEnterAnimation({ anchor: 'enter', duration: 600 })],
     standalone: true,
     imports: [NgFor, RouterLinkWithHref],
 })

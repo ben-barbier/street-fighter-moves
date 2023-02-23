@@ -2,7 +2,6 @@ import { NgFor, NgStyle } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLinkWithHref } from '@angular/router';
-import { fadeInOnEnterAnimation } from 'angular-animations';
 import { map } from 'rxjs/operators';
 import { Character, countries, maxStamina, maxStun } from '../../data';
 import { CharacterDetailsComponent } from '../character-page/character-details/character-details.component';
@@ -11,7 +10,6 @@ import { CharacterDetailsComponent } from '../character-page/character-details/c
     selector: 'app-country-page',
     templateUrl: './country-page.component.html',
     styleUrls: ['./country-page.component.scss'],
-    animations: [fadeInOnEnterAnimation({ anchor: 'enter', duration: 800 })],
     standalone: true,
     imports: [NgFor, NgStyle, RouterLinkWithHref, CharacterDetailsComponent],
 })
