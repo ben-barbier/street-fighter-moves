@@ -20,56 +20,56 @@ import { ControlsComponent } from '../controls/controls.component';
 import { UpdateAppIndicatorComponent } from '../features/update-app/update-app-indicator/update-app-indicator.component';
 
 @Component({
-    selector: 'app-nav',
-    templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        MatSidenavModule,
-        MatIconModule,
-        RouterLink,
-        FormsModule,
-        MatListModule,
-        MatButtonModule,
-        MatInputModule,
-        TranslateModule,
-        GithubButtonComponent,
-        MatToolbarModule,
-        MatMenuModule,
-        RouterOutlet,
-        UpdateAppIndicatorComponent,
-    ],
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    MatSidenavModule,
+    MatIconModule,
+    RouterLink,
+    FormsModule,
+    MatListModule,
+    MatButtonModule,
+    MatInputModule,
+    TranslateModule,
+    GithubButtonComponent,
+    MatToolbarModule,
+    MatMenuModule,
+    RouterOutlet,
+    UpdateAppIndicatorComponent,
+  ],
 })
 export class NavComponent {
-    public characters = data[0].characters;
-    public filteredCharacters = [...this.characters];
-    public version: string = pkg?.version;
-    public isHandset = false;
-    public search = '';
+  public characters = data[0].characters;
+  public filteredCharacters = [...this.characters];
+  public version: string = pkg?.version;
+  public isHandset = false;
+  public search = '';
 
-    constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog, private translate: TranslateService) {
-        this.breakpointObserver
-            .observe('(max-width: 739px)')
-            .pipe(map(result => result.matches))
-            .subscribe(isHandset => (this.isHandset = isHandset));
-    }
+  constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog, private translate: TranslateService) {
+    this.breakpointObserver
+      .observe('(max-width: 739px)')
+      .pipe(map(result => result.matches))
+      .subscribe(isHandset => (this.isHandset = isHandset));
+  }
 
-    public openControls(): void {
-        this.dialog.open(ControlsComponent);
-    }
+  public openControls(): void {
+    this.dialog.open(ControlsComponent);
+  }
 
-    public setLang(lang: 'fr' | 'en'): void {
-        this.translate.use(lang);
-    }
+  public setLang(lang: 'fr' | 'en'): void {
+    this.translate.use(lang);
+  }
 
-    public filterCharacters(search: string): void {
-        this.filteredCharacters = this.characters.filter(character => character.name.toLowerCase().includes(search.toLowerCase()));
-    }
+  public filterCharacters(search: string): void {
+    this.filteredCharacters = this.characters.filter(character => character.name.toLowerCase().includes(search.toLowerCase()));
+  }
 
-    public clearSearch(): void {
-        this.search = '';
-        this.filterCharacters('');
-    }
+  public clearSearch(): void {
+    this.search = '';
+    this.filterCharacters('');
+  }
 }

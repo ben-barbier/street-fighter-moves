@@ -16,53 +16,53 @@ import { NavComponent } from './shared/nav/nav.component';
 const availableLanguages = ['fr', 'en'];
 
 const loadTranslations =
-    (translate: TranslateService, injector: Injector): (() => Promise<any>) =>
-    () =>
-        new Promise<any>((resolve: any) => {
-            const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
-            locationInitialized.then(() => {
-                const browserLanguage = navigator?.language?.split('-')[0];
-                const langToSet = availableLanguages.find(l => l === browserLanguage) || 'en';
-                translate.setDefaultLang('fr');
-                translate
-                    .use(langToSet)
-                    .pipe(
-                        tap({
-                            next: () => console.log(`Successfully initialized '${langToSet}' language.`),
-                            error: () => console.error(`Problem with '${langToSet}' language initialization.`),
-                        }),
-                        finalize(() => resolve()),
-                    )
-                    .subscribe();
-            });
-        });
+  (translate: TranslateService, injector: Injector): (() => Promise<any>) =>
+  () =>
+    new Promise<any>((resolve: any) => {
+      const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
+      locationInitialized.then(() => {
+        const browserLanguage = navigator?.language?.split('-')[0];
+        const langToSet = availableLanguages.find(l => l === browserLanguage) || 'en';
+        translate.setDefaultLang('fr');
+        translate
+          .use(langToSet)
+          .pipe(
+            tap({
+              next: () => console.log(`Successfully initialized '${langToSet}' language.`),
+              error: () => console.error(`Problem with '${langToSet}' language initialization.`),
+            }),
+            finalize(() => resolve()),
+          )
+          .subscribe();
+      });
+    });
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatDialogModule,
-        NavComponent,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
-                deps: [HttpClient],
-            },
-        }),
-    ],
-    providers: [
-        {
-            provide: APP_INITIALIZER,
-            useFactory: loadTranslations,
-            deps: [TranslateService, Injector],
-            multi: true,
-        },
-    ],
-    bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatDialogModule,
+    NavComponent,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
+        deps: [HttpClient],
+      },
+    }),
+  ],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadTranslations,
+      deps: [TranslateService, Injector],
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

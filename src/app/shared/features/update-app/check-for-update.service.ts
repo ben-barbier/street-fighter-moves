@@ -4,17 +4,17 @@ import { concat, interval } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class CheckForUpdateService {
-    constructor(appRef: ApplicationRef, updates: SwUpdate) {
-        if (updates.isEnabled) {
-            // Allow the app to stabilize first, before starting polling for updates with `interval()`.
-            const appIsStable$ = appRef.isStable.pipe(first(isStable => isStable));
-            const everySixHours$ = interval(6 * 60 * 60 * 1000);
-            const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
+  constructor(appRef: ApplicationRef, updates: SwUpdate) {
+    if (updates.isEnabled) {
+      // Allow the app to stabilize first, before starting polling for updates with `interval()`.
+      const appIsStable$ = appRef.isStable.pipe(first(isStable => isStable));
+      const everySixHours$ = interval(6 * 60 * 60 * 1000);
+      const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
 
-            everySixHoursOnceAppIsStable$.subscribe(() => updates.checkForUpdate());
-        }
+      everySixHoursOnceAppIsStable$.subscribe(() => updates.checkForUpdate());
     }
+  }
 }

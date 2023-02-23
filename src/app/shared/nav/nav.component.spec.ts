@@ -21,42 +21,42 @@ import { UpdateAppIndicatorComponent } from '../features/update-app/update-app-i
 import { NavComponent } from './nav.component';
 
 describe('NavComponent', () => {
-    let component: NavComponent;
-    let fixture: ComponentFixture<NavComponent>;
+  let component: NavComponent;
+  let fixture: ComponentFixture<NavComponent>;
 
-    beforeEach(waitForAsync(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                NavComponent,
-                UpdateAppIndicatorComponent,
-                NoopAnimationsModule,
-                FormsModule,
-                GithubButtonModule,
-                HttpClientModule,
-                LayoutModule,
-                MatButtonModule,
-                MatDialogModule,
-                MatFormFieldModule,
-                MatIconModule,
-                MatInputModule,
-                MatListModule,
-                MatMenuModule,
-                MatSidenavModule,
-                MatToolbarModule,
-                RouterTestingModule,
-                TranslateModule.forRoot(),
-            ],
-            providers: [{ provide: PromptUpdateService, useValue: { promptUpdateDilog: jest.fn() } }],
-        }).compileComponents();
-    }));
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        NavComponent,
+        UpdateAppIndicatorComponent,
+        NoopAnimationsModule,
+        FormsModule,
+        GithubButtonModule,
+        HttpClientModule,
+        LayoutModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+      ],
+      providers: [{ provide: PromptUpdateService, useValue: { promptUpdateDilog: jest.fn() } }],
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(NavComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(NavComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should compile', () => {
-        expect(component).toBeDefined();
-    });
+  it('should compile', () => {
+    expect(component).toBeDefined();
+  });
 });

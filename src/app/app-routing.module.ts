@@ -9,27 +9,27 @@ import { CountryPageGuard } from './pages/country-page/country-page.guard';
 import { CountryPageResolver } from './pages/country-page/country-page.resolver';
 
 const routes: Routes = [
-    {
-        path: 'sf4',
-        component: CharactersListPageComponent,
-    },
-    {
-        path: 'sf4/characters/:characterId',
-        component: CharacterPageComponent,
-        canActivate: [CharacterPageGuard],
-        resolve: { character: CharacterPageResolver },
-    },
-    {
-        path: 'sf4/countries/:country',
-        component: CountryPageComponent,
-        canActivate: [CountryPageGuard],
-        resolve: { character: CountryPageResolver },
-    },
-    { path: '**', redirectTo: '/sf4' },
+  {
+    path: 'sf4',
+    component: CharactersListPageComponent,
+  },
+  {
+    path: 'sf4/characters/:characterId',
+    component: CharacterPageComponent,
+    canActivate: [CharacterPageGuard],
+    resolve: { character: CharacterPageResolver },
+  },
+  {
+    path: 'sf4/countries/:country',
+    component: CountryPageComponent,
+    canActivate: [CountryPageGuard],
+    resolve: { character: CountryPageResolver },
+  },
+  { path: '**', redirectTo: '/sf4' },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -5,10 +5,10 @@ import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/lega
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-controls',
-    templateUrl: './controls.component.html',
-    styleUrls: ['./controls.component.scss'],
-    standalone: true,
-    imports: [MatDialogModule, TranslateModule, MatButtonModule, MatIconModule],
+  selector: 'app-controls',
+  templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.scss'],
+  standalone: true,
+  imports: [MatDialogModule, TranslateModule, MatButtonModule, MatIconModule],
 })
 export class ControlsComponent {}

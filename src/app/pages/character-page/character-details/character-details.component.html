@@ -1,25 +1,25 @@
 <mat-card *ngIf="character">
-    <div>
-        <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
-    </div>
+  <div>
+    <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
+  </div>
 
-    <div class="character-infos">
-        <div class="title">
-            <h1>{{ character.name }}</h1>
-            <a class="flag" *ngIf="countryLinkActive" [routerLink]="['/sf4', 'countries', character.country]">
-                <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
-            </a>
-            <span class="flag" *ngIf="!countryLinkActive">
-                <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
-            </span>
-        </div>
-        <div>
-            <span>🛡 {{ 'pages.character-details.stamina' | translate }} - {{ character.stamina }}</span>
-            <mat-progress-bar mode="determinate" [value]="(character.stamina / maxStamina) * 100"></mat-progress-bar>
-        </div>
-        <div>
-            <span>👊 {{ 'pages.character-details.stun' | translate }} - {{ character.stun }}</span>
-            <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar>
-        </div>
+  <div class="character-infos">
+    <div class="title">
+      <h1>{{ character.name }}</h1>
+      <a class="flag" *ngIf="countryLinkActive" [routerLink]="['/sf4', 'countries', character.country]">
+        <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+      </a>
+      <span class="flag" *ngIf="!countryLinkActive">
+        <img class="mat-elevation-z2" [src]="'assets/countries/' + character.country + '.svg'" alt="" />
+      </span>
     </div>
+    <div>
+      <span>🛡 {{ 'pages.character-details.stamina' | translate }} - {{ character.stamina }}</span>
+      <mat-progress-bar mode="determinate" [value]="(character.stamina / maxStamina) * 100"></mat-progress-bar>
+    </div>
+    <div>
+      <span>👊 {{ 'pages.character-details.stun' | translate }} - {{ character.stun }}</span>
+      <mat-progress-bar mode="determinate" [value]="(character.stun / maxStun) * 100"></mat-progress-bar>
+    </div>
+  </div>
 </mat-card>

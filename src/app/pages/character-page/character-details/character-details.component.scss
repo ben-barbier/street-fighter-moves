@@ -1,29 +1,29 @@
 mat-card {
-    display: flex;
-    margin: 12px;
+  display: flex;
+  margin: 12px;
 
-    img.character-thumbnail {
-        margin-right: 12px;
-    }
+  img.character-thumbnail {
+    margin-right: 12px;
+  }
 
-    .character-infos {
-        width: 100%;
+  .character-infos {
+    width: 100%;
 
-        .title {
-            display: inline-flex;
-            margin: 0.5em 0;
+    .title {
+      display: inline-flex;
+      margin: 0.5em 0;
 
-            h1 {
-                margin: 0;
-            }
+      h1 {
+        margin: 0;
+      }
 
-            .flag {
-                margin-left: 1em;
+      .flag {
+        margin-left: 1em;
 
-                img {
-                    max-height: 2em;
-                }
-            }
+        img {
+          max-height: 2em;
         }
+      }
     }
+  }
 }
