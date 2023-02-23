@@ -1,7 +1,7 @@
 import { DOCUMENT, NgFor } from '@angular/common';
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Character, data } from '../../data';
 
 @Component({
@@ -9,7 +9,7 @@ import { Character, data } from '../../data';
     templateUrl: './characters-list-page.component.html',
     styleUrls: ['./characters-list-page.component.scss'],
     standalone: true,
-    imports: [NgFor, RouterLinkWithHref],
+    imports: [NgFor, RouterLink],
 })
 export class CharactersListPageComponent implements OnDestroy {
     public characters: Character[] = data[0].characters;

@@ -1,7 +1,7 @@
 import { NgFor, NgStyle } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, RouterLinkWithHref } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Character, countries, maxStamina, maxStun } from '../../data';
 import { CharacterDetailsComponent } from '../character-page/character-details/character-details.component';
@@ -11,7 +11,7 @@ import { CharacterDetailsComponent } from '../character-page/character-details/c
     templateUrl: './country-page.component.html',
     styleUrls: ['./country-page.component.scss'],
     standalone: true,
-    imports: [NgFor, NgStyle, RouterLinkWithHref, CharacterDetailsComponent],
+    imports: [NgFor, NgStyle, RouterLink, CharacterDetailsComponent],
 })
 export class CountryPageComponent implements OnDestroy {
     public characters: Character[] = [];
