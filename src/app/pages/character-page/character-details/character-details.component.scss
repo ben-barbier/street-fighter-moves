@@ -1,6 +1,8 @@
 mat-card {
   display: flex;
+  flex-direction: row;
   margin: 12px;
+  padding: 16px;
 
   img.character-thumbnail {
     margin-right: 12px;

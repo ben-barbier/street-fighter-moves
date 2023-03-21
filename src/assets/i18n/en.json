@@ -1,7 +1,8 @@
 {
   "actions": {
     "update": "Update",
-    "do-later": "Do Later"
+    "do-later": "Do Later",
+    "ok": "OK, got it"
   },
   "nav": {
     "title": "Street Fighter Moves",

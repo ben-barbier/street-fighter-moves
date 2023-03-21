@@ -2,6 +2,11 @@
   height: 100%;
 }
 
+.characters-link {
+  display: flex;
+  margin: 12px;
+}
+
 .sidenav {
   width: 200px;
 }
@@ -36,7 +41,7 @@
 }
 
 .flagButton {
-  text-align: center;
+  justify-content: center;
 
   .flag {
     max-height: 36px;

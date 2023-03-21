@@ -1,7 +1,8 @@
 {
   "actions": {
     "update": "Mettre à jour",
-    "do-later": "Plus tard"
+    "do-later": "Plus tard",
+    "ok": "OK"
   },
   "nav": {
     "title": "Street Fighter Moves",

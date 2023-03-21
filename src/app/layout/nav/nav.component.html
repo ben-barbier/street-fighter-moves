@@ -10,24 +10,22 @@
     <mat-toolbar class="title-container">
       <img src="assets/logo.png" alt="Menu" />
     </mat-toolbar>
+
+    <a mat-raised-button (click)="isHandset && drawer.close()" [routerLink]="['/sf4']" class="characters-link">
+      <mat-icon>view_module</mat-icon>
+      {{ 'nav.list' | translate }}
+    </a>
+
+    <mat-form-field class="search">
+      <mat-label>
+        <mat-icon>person_search</mat-icon>
+      </mat-label>
+      <input type="text" matInput [(ngModel)]="search" (ngModelChange)="filterCharacters(search)" />
+      <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
     <mat-nav-list>
-      <a mat-list-item (click)="isHandset && drawer.close()" [routerLink]="['/sf4']">
-        <mat-icon>view_module</mat-icon>
-        {{ 'nav.list' | translate }}
-      </a>
-
-      <mat-list-item>
-        <mat-form-field class="search">
-          <mat-label>
-            <mat-icon>person_search</mat-icon>
-          </mat-label>
-          <input type="text" matInput [(ngModel)]="search" (ngModelChange)="filterCharacters(search)" />
-          <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-form-field>
-      </mat-list-item>
-
       <a
         mat-list-item
         (click)="isHandset && drawer.close()"
