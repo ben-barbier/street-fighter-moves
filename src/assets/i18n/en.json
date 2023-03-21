@@ -1,39 +1,40 @@
 {
-    "actions": {
-        "update": "Update",
-        "do-later": "Do Later"
-    },
-    "nav": {
-        "title": "Street Fighter Moves",
-        "list": "Characters",
-        "no-results": "No results"
-    },
-    "update-app-dialog": {
-        "title": "Street Fighter Moves : new version available",
-        "texts": [
-            "A new version of the 'Street Fighter Moves' application is available.",
-            "You can choose to activate it now or activate it later by clicking on the",
-            "icon on your navigation bar."
-        ]
-    },
-    "controls": {
-        "title": "Controls",
-        "manuals": "CAPCOM® Online Manuals",
-        "punch": "Punch",
-        "kick": "Kick",
-        "light-punch": "Light kick",
-        "medium-punch": "Medium kick",
-        "heavy-punch": "Heavy kick",
-        "triple-punch": "3 Punch buttons in same time",
-        "light-kick": "Light kick",
-        "medium-kick": "Medium kick",
-        "heavy-kick": "Heavy kick",
-        "triple-kick": "3 Kick buttons in same time"
-    },
-    "pages": {
-        "character-details": {
-            "stun": "Stun",
-            "stamina": "Stamina"
-        }
+  "actions": {
+    "update": "Update",
+    "do-later": "Do Later",
+    "ok": "OK, got it"
+  },
+  "nav": {
+    "title": "Street Fighter Moves",
+    "list": "Characters",
+    "no-results": "No results"
+  },
+  "update-app-dialog": {
+    "title": "Street Fighter Moves : new version available",
+    "texts": [
+      "A new version of the 'Street Fighter Moves' application is available.",
+      "You can choose to activate it now or activate it later by clicking on the",
+      "icon on your navigation bar."
+    ]
+  },
+  "controls": {
+    "title": "Controls",
+    "manuals": "CAPCOM® Online Manuals",
+    "punch": "Punch",
+    "kick": "Kick",
+    "light-punch": "Light kick",
+    "medium-punch": "Medium kick",
+    "heavy-punch": "Heavy kick",
+    "triple-punch": "3 Punch buttons in same time",
+    "light-kick": "Light kick",
+    "medium-kick": "Medium kick",
+    "heavy-kick": "Heavy kick",
+    "triple-kick": "3 Kick buttons in same time"
+  },
+  "pages": {
+    "character-details": {
+      "stun": "Stun",
+      "stamina": "Stamina"
     }
+  }
 }

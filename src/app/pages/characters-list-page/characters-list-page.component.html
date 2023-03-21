@@ -1,7 +1,7 @@
-<ul @enter>
-    <li *ngFor="let character of characters; trackBy: trackById">
-        <a [routerLink]="['/sf4', 'characters', character.id]">
-            <img [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
-        </a>
-    </li>
+<ul>
+  <li *ngFor="let character of characters; trackBy: trackById">
+    <a [routerLink]="['/sf4', 'characters', character.id]">
+      <img [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
+    </a>
+  </li>
 </ul>

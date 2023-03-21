@@ -1,39 +1,40 @@
 {
-    "actions": {
-        "update": "Mettre à jour",
-        "do-later": "Plus tard"
-    },
-    "nav": {
-        "title": "Street Fighter Moves",
-        "list": "Personnages",
-        "no-results": "Aucun résultat"
-    },
-    "update-app-dialog": {
-        "title": "Street Fighter Moves : nouvelle version disponible",
-        "texts": [
-            "Une nouvelle version de l'application 'Street Fighter Moves' est disponible.",
-            "Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone",
-            "de votre barre de navigation."
-        ]
-    },
-    "controls": {
-        "title": "Commandes",
-        "manuals": "Manuels CAPCOM® en ligne",
-        "punch": "Coup de poing",
-        "kick": "Coup de pied",
-        "light-punch": "Coup de poing léger",
-        "medium-punch": "Coup de poing moyen",
-        "heavy-punch": "Coup de poing lourd",
-        "triple-punch": "3 boutons 'Coup de poing' en même temps",
-        "light-kick": "Coup de pied léger",
-        "medium-kick": "Coup de pied moyen",
-        "heavy-kick": "Coup de pied lourd",
-        "triple-kick": "3 boutons 'Coup de pied' en même temps"
-    },
-    "pages": {
-        "character-details": {
-            "stun": "Étourdissement",
-            "stamina": "Endurance"
-        }
+  "actions": {
+    "update": "Mettre à jour",
+    "do-later": "Plus tard",
+    "ok": "OK"
+  },
+  "nav": {
+    "title": "Street Fighter Moves",
+    "list": "Personnages",
+    "no-results": "Aucun résultat"
+  },
+  "update-app-dialog": {
+    "title": "Street Fighter Moves : nouvelle version disponible",
+    "texts": [
+      "Une nouvelle version de l'application 'Street Fighter Moves' est disponible.",
+      "Vous pouvez choisir de l'activer dès à présent ou de le faire ultérieurement en cliquant sur l'icone",
+      "de votre barre de navigation."
+    ]
+  },
+  "controls": {
+    "title": "Commandes",
+    "manuals": "Manuels CAPCOM® en ligne",
+    "punch": "Coup de poing",
+    "kick": "Coup de pied",
+    "light-punch": "Coup de poing léger",
+    "medium-punch": "Coup de poing moyen",
+    "heavy-punch": "Coup de poing lourd",
+    "triple-punch": "3 boutons 'Coup de poing' en même temps",
+    "light-kick": "Coup de pied léger",
+    "medium-kick": "Coup de pied moyen",
+    "heavy-kick": "Coup de pied lourd",
+    "triple-kick": "3 boutons 'Coup de pied' en même temps"
+  },
+  "pages": {
+    "character-details": {
+      "stun": "Étourdissement",
+      "stamina": "Endurance"
     }
+  }
 }

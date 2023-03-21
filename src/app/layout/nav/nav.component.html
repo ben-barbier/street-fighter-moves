@@ -1,0 +1,77 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [mode]="isHandset ? 'over' : 'side'"
+    [opened]="isHandset === false"
+  >
+    <mat-toolbar class="title-container">
+      <img src="assets/logo.png" alt="Menu" />
+    </mat-toolbar>
+
+    <a mat-raised-button (click)="isHandset && drawer.close()" [routerLink]="['/sf4']" class="characters-link">
+      <mat-icon>view_module</mat-icon>
+      {{ 'nav.list' | translate }}
+    </a>
+
+    <mat-form-field class="search">
+      <mat-label>
+        <mat-icon>person_search</mat-icon>
+      </mat-label>
+      <input type="text" matInput [(ngModel)]="search" (ngModelChange)="filterCharacters(search)" />
+      <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        (click)="isHandset && drawer.close()"
+        *ngFor="let character of filteredCharacters"
+        [routerLink]="['/sf4', 'characters', character.id]"
+      >
+        <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
+        {{ character.name }}
+      </a>
+
+      <mat-list-item *ngIf="filteredCharacters.length === 0">
+        <mat-icon>search_off</mat-icon>
+        <div>{{ 'nav.no-results' | translate }}</div>
+      </mat-list-item>
+
+      <mat-list-item> v {{ version }} </mat-list-item>
+      <mat-list-item>
+        <github-button type="stargazers" size="large" namespace="ben-barbier" repo="street-fighter-moves"></github-button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{ 'nav.title' | translate }}</span>
+      <span class="spacer"></span>
+      <app-update-app-indicator></app-update-app-indicator>
+      <button mat-icon-button (click)="openControls()">
+        <mat-icon>sports_esports</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
+        <mat-icon>translate</mat-icon>
+      </button>
+      <mat-menu #i18nMenu="matMenu">
+        <button mat-menu-item class="flagButton" (click)="setLang('fr')">
+          <img class="flag" src="assets/countries/France.svg" alt="fr" />
+        </button>
+        <button mat-menu-item class="flagButton" (click)="setLang('en')">
+          <img class="flag" src="assets/countries/UK.svg" alt="en" />
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

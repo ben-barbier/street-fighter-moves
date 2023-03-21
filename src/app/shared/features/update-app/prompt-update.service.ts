@@ -6,27 +6,27 @@ import { filter } from 'rxjs/operators';
 import { UpdateAppDialogComponent } from './update-app-dialog/update-app-dialog.component';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class PromptUpdateService {
-    public appHasUpdateAvailable$ = new BehaviorSubject<boolean>(false);
+  public appHasUpdateAvailable$ = new BehaviorSubject<boolean>(false);
 
-    constructor(private updates: SwUpdate, private dialog: MatDialog) {
-        if (this.updates.isEnabled) {
-            updates.available.subscribe(() => {
-                this.appHasUpdateAvailable$.next(true);
-                this.promptUpdateDialog();
-            });
-        }
+  constructor(private updates: SwUpdate, private dialog: MatDialog) {
+    if (this.updates.isEnabled) {
+      updates.available.subscribe(() => {
+        this.appHasUpdateAvailable$.next(true);
+        this.promptUpdateDialog();
+      });
     }
+  }
 
-    public promptUpdateDialog(): void {
-        this.dialog
-            .open(UpdateAppDialogComponent)
-            .afterClosed()
-            .pipe(filter(response => !!response))
-            .subscribe(() => {
-                this.updates.activateUpdate().then(() => document.location.reload());
-            });
-    }
+  public promptUpdateDialog(): void {
+    this.dialog
+      .open(UpdateAppDialogComponent)
+      .afterClosed()
+      .pipe(filter(response => !!response))
+      .subscribe(() => {
+        this.updates.activateUpdate().then(() => document.location.reload());
+      });
+  }
 }

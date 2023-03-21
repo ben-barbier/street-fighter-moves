@@ -3,111 +3,111 @@ $super: #ffa000;
 $ultra: #d32f2f;
 
 :host {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 table {
-    margin: 0 6px;
+  margin: 0 6px;
 }
 
 .vertical-align {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .special,
 .super,
 .ultra {
-    .type {
-        font-weight: bold;
-        writing-mode: tb-rl;
-        width: 18px;
-        text-align: center;
-        margin-right: 2px;
-        text-shadow: 0 0 3px black;
+  .type {
+    font-weight: bold;
+    writing-mode: tb-rl;
+    width: 18px;
+    text-align: center;
+    margin-right: 2px;
+    text-shadow: 0 0 3px black;
+  }
+
+  .title {
+    &.combo {
+      display: flex;
+      padding: 4px 10px 4px 4px;
     }
 
-    .title {
-        &.combo {
-            display: flex;
-            padding: 4px 10px 4px 4px;
-        }
+    padding: 4px 10px;
+    min-height: 64px;
+    height: 100%;
+    box-sizing: border-box;
 
-        padding: 4px 10px;
-        min-height: 64px;
-        height: 100%;
-        box-sizing: border-box;
-
-        .name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .original-name {
-            font-size: 0.8em;
-        }
+    .name {
+      font-size: 1.2em;
+      font-weight: bold;
     }
 
-    .motion {
-        display: flex;
-        align-items: center;
-
-        mat-icon {
-            margin-right: 10px;
-            font-size: 30px;
-        }
+    .original-name {
+      font-size: 0.8em;
     }
+  }
+
+  .motion {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: 10px;
+      font-size: 30px;
+    }
+  }
 }
 
 .special {
-    .title {
-        color: white;
-        background-color: $special;
+  .title {
+    color: white;
+    background-color: $special;
 
-        .original-name {
-            color: #b3e5fc;
-        }
+    .original-name {
+      color: #b3e5fc;
     }
+  }
 
-    &.followup .title {
-        background-color: lighten($special, 15%);
-    }
+  &.followup .title {
+    background-color: lighten($special, 15%);
+  }
 }
 
 .super {
-    .type {
-        color: $super;
-    }
-    .title {
-        color: white;
-        background-color: #ffc107;
+  .type {
+    color: $super;
+  }
+  .title {
+    color: white;
+    background-color: #ffc107;
 
-        .original-name {
-            color: #ffecb3;
-        }
+    .original-name {
+      color: #ffecb3;
     }
+  }
 
-    &.followup .title {
-        background-color: lighten($super, 15%);
-    }
+  &.followup .title {
+    background-color: lighten($super, 15%);
+  }
 }
 
 .ultra {
-    .type {
-        color: $ultra;
-    }
-    .title {
-        color: white;
-        background-color: #f44336;
+  .type {
+    color: $ultra;
+  }
+  .title {
+    color: white;
+    background-color: #f44336;
 
-        .original-name {
-            color: #ffcdd2;
-        }
+    .original-name {
+      color: #ffcdd2;
     }
+  }
 
-    &.followup .title {
-        background-color: lighten($ultra, 15%);
-    }
+  &.followup .title {
+    background-color: lighten($ultra, 15%);
+  }
 }

@@ -1,21 +1,19 @@
-<div @enter>
-    <div
-        class="country-flag mat-elevation-z4"
-        [ngStyle]="{ background: 'url(assets/countries/' + country + '.svg) center center/cover no-repeat' }"
-    >
-        <div class="light">
-            <img class="mat-elevation-z3" id="flag" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
-            <div class="other-countries-flags">
-                <a *ngFor="let country of otherCountries" [routerLink]="['/sf4', 'countries', country]">
-                    <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
-                </a>
-            </div>
-        </div>
+<div
+  class="country-flag mat-elevation-z4"
+  [ngStyle]="{ background: 'url(assets/countries/' + country + '.svg) center center/cover no-repeat' }"
+>
+  <div class="light">
+    <img class="mat-elevation-z3" id="flag" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
+    <div class="other-countries-flags">
+      <a *ngFor="let country of otherCountries" [routerLink]="['/sf4', 'countries', country]">
+        <img class="mat-elevation-z2" [src]="'assets/countries/' + country + '.svg'" [alt]="country" />
+      </a>
     </div>
+  </div>
+</div>
 
-    <div class="characters">
-        <a *ngFor="let character of characters" [routerLink]="['/sf4', 'characters', character.id]">
-            <app-character-details [character]="character" [maxStamina]="maxStamina" [maxStun]="maxStun"></app-character-details>
-        </a>
-    </div>
+<div class="characters">
+  <a *ngFor="let character of characters" [routerLink]="['/sf4', 'characters', character.id]">
+    <app-character-details [character]="character" [maxStamina]="maxStamina" [maxStun]="maxStun"></app-character-details>
+  </a>
 </div>
