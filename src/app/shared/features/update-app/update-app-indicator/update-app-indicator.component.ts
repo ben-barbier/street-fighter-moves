@@ -1,5 +1,5 @@
 import { AsyncPipe, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { combineLatest } from 'rxjs';
@@ -15,9 +15,10 @@ import { PromptUpdateService } from '../prompt-update.service';
   imports: [NgIf, MatButtonModule, MatIconModule, AsyncPipe],
 })
 export class UpdateAppIndicatorComponent {
+  public update = inject(PromptUpdateService);
+  private connection = inject(ConnectionService);
+
   public displayIndicator$ = combineLatest([this.connection.isOnline$, this.update.appHasUpdateAvailable$]).pipe(
     map(([isOnline, appHasUpdateAvailable]) => isOnline && appHasUpdateAvailable),
   );
-
-  constructor(public update: PromptUpdateService, public connection: ConnectionService) {}
 }

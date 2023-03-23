@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -42,14 +42,18 @@ import { ControlsComponent } from './controls/controls.component';
     UpdateAppIndicatorComponent,
   ],
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+  private breakpointObserver = inject(BreakpointObserver);
+  private dialog = inject(MatDialog);
+  private translate = inject(TranslateService);
+
   public characters = data[0].characters;
   public filteredCharacters = [...this.characters];
   public version: string = pkg?.version;
   public isHandset = false;
   public search = '';
 
-  constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog, private translate: TranslateService) {
+  ngOnInit(): void {
     this.breakpointObserver
       .observe('(max-width: 739px)')
       .pipe(map(result => result.matches))

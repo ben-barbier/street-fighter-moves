@@ -1,5 +1,5 @@
 import { DOCUMENT, NgFor } from '@angular/common';
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { Character, data } from '../../data';
@@ -11,24 +11,28 @@ import { Character, data } from '../../data';
   standalone: true,
   imports: [NgFor, RouterLink],
 })
-export class CharactersListPageComponent implements OnDestroy {
+export class CharactersListPageComponent implements OnInit, OnDestroy {
+  private title = inject(Title);
+  private meta = inject(Meta);
+  private document = inject(DOCUMENT);
+
   public characters: Character[] = data[0].characters;
 
   public trackById = (index: number, character: Character) => character.id;
 
-  constructor(private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
+  ngOnInit(): void {
     const titleText = 'Street Fighter Moves';
-    title.setTitle(titleText);
+    this.title.setTitle(titleText);
 
     const description = 'Street Fighter 4 Arcade Edition';
-    meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ name: 'description', content: description });
 
     // 📖 : https://developers.facebook.com/docs/sharing/webmasters#markup
-    meta.updateTag({ name: 'og:url', content: document.URL });
-    meta.updateTag({ name: 'og:type', content: 'website' });
-    meta.updateTag({ name: 'og:title', content: titleText });
-    meta.updateTag({ name: 'og:description', content: description });
-    meta.updateTag({ name: 'og:image', content: `${document.baseURI}assets/logo.png` });
+    this.meta.updateTag({ name: 'og:url', content: this.document.URL });
+    this.meta.updateTag({ name: 'og:type', content: 'website' });
+    this.meta.updateTag({ name: 'og:title', content: titleText });
+    this.meta.updateTag({ name: 'og:description', content: description });
+    this.meta.updateTag({ name: 'og:image', content: `${this.document.baseURI}assets/logo.png` });
   }
 
   ngOnDestroy(): void {
