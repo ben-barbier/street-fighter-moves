@@ -1,4 +1,4 @@
-import { DOCUMENT, NgFor } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -9,7 +9,7 @@ import { Character, data } from '../../data';
   templateUrl: './characters-list-page.component.html',
   styleUrls: ['./characters-list-page.component.scss'],
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [CommonModule, RouterLink],
 })
 export class CharactersListPageComponent implements OnInit, OnDestroy {
   private title = inject(Title);

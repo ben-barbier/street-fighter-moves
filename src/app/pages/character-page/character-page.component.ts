@@ -1,4 +1,4 @@
-import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ import { CharacterMovesComponent } from './character-moves/character-moves.compo
   templateUrl: './character-page.component.html',
   styleUrls: ['./character-page.component.scss'],
   standalone: true,
-  imports: [NgIf, AsyncPipe, CharacterDetailsComponent, CharacterMovesComponent],
+  imports: [CommonModule, CharacterDetailsComponent, CharacterMovesComponent],
 })
 export class CharacterPageComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);

@@ -1,4 +1,4 @@
-import { NgFor, NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -11,7 +11,7 @@ import { CharacterDetailsComponent } from '../character-page/character-details/c
   templateUrl: './country-page.component.html',
   styleUrls: ['./country-page.component.scss'],
   standalone: true,
-  imports: [NgFor, NgStyle, RouterLink, CharacterDetailsComponent],
+  imports: [CommonModule, RouterLink, CharacterDetailsComponent],
 })
 export class CountryPageComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);

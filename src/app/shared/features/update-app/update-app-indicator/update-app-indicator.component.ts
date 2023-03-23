@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { PromptUpdateService } from '../prompt-update.service';
   templateUrl: './update-app-indicator.component.html',
   styleUrls: ['./update-app-indicator.component.scss'],
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatIconModule, AsyncPipe],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
 })
 export class UpdateAppIndicatorComponent {
   public update = inject(PromptUpdateService);
