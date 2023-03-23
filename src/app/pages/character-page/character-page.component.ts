@@ -1,5 +1,5 @@
 import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -17,27 +17,32 @@ import { CharacterMovesComponent } from './character-moves/character-moves.compo
   standalone: true,
   imports: [NgIf, AsyncPipe, CharacterDetailsComponent, CharacterMovesComponent],
 })
-export class CharacterPageComponent implements OnDestroy {
+export class CharacterPageComponent implements OnInit, OnDestroy {
+  private route = inject(ActivatedRoute);
+  private title = inject(Title);
+  private meta = inject(Meta);
+  private document = inject(DOCUMENT);
+
   public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData['character']));
   public maxStamina = maxStamina(1);
   public maxStun = maxStun(1);
 
-  constructor(private route: ActivatedRoute, private title: Title, private meta: Meta, @Inject(DOCUMENT) private document: Document) {
+  ngOnInit(): void {
     this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
       const titleText = `Street Fighter Moves - ${character.name}`;
-      title.setTitle(titleText);
+      this.title.setTitle(titleText);
 
       const description = `Street Fighter 4 Arcade Edition - ${character.name} moves`;
-      meta.updateTag({ name: 'description', content: description });
+      this.meta.updateTag({ name: 'description', content: description });
 
       // 📖 : https://developers.facebook.com/docs/sharing/webmasters#markup
-      meta.updateTag({ name: 'og:url', content: document.URL });
-      meta.updateTag({ name: 'og:type', content: 'website' });
-      meta.updateTag({ name: 'og:title', content: titleText });
-      meta.updateTag({ name: 'og:description', content: description });
-      meta.updateTag({
+      this.meta.updateTag({ name: 'og:url', content: this.document.URL });
+      this.meta.updateTag({ name: 'og:type', content: 'website' });
+      this.meta.updateTag({ name: 'og:title', content: titleText });
+      this.meta.updateTag({ name: 'og:description', content: description });
+      this.meta.updateTag({
         name: 'og:image',
-        content: `${document.baseURI}assets/characters/${character.id}_thumbnail.png`,
+        content: `${this.document.baseURI}assets/characters/${character.id}_thumbnail.png`,
       });
     });
   }
