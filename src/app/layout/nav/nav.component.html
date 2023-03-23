@@ -21,7 +21,7 @@
         <mat-icon>person_search</mat-icon>
       </mat-label>
       <input type="text" matInput [(ngModel)]="search" (ngModelChange)="filterCharacters(search)" />
-      <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+      <button type="button" *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -55,17 +55,17 @@
       <span>{{ 'nav.title' | translate }}</span>
       <span class="spacer"></span>
       <app-update-app-indicator></app-update-app-indicator>
-      <button mat-icon-button (click)="openControls()">
+      <button type="button" mat-icon-button (click)="openControls()">
         <mat-icon>sports_esports</mat-icon>
       </button>
-      <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
+      <button type="button" mat-icon-button [matMenuTriggerFor]="i18nMenu">
         <mat-icon>translate</mat-icon>
       </button>
       <mat-menu #i18nMenu="matMenu">
-        <button mat-menu-item class="flagButton" (click)="setLang('fr')">
+        <button type="button" mat-menu-item class="flagButton" (click)="setLang('fr')">
           <img class="flag" src="assets/countries/France.svg" alt="fr" />
         </button>
-        <button mat-menu-item class="flagButton" (click)="setLang('en')">
+        <button type="button" mat-menu-item class="flagButton" (click)="setLang('en')">
           <img class="flag" src="assets/countries/UK.svg" alt="en" />
         </button>
       </mat-menu>
