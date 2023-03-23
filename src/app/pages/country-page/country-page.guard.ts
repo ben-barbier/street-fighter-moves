@@ -1,15 +1,8 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { data } from '../../data';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class CountryPageGuard implements CanActivate {
-  constructor(private router: Router) {}
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-    const countryExists = data[0].characters.some(c => c.country === route.params['country']);
-    return countryExists || this.router.createUrlTree(['/sf4']);
-  }
-}
+export const canActivateCountry: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree => {
+  const countryExists = data[0].characters.some(c => c.country === route.params['country']);
+  return countryExists || inject(Router).createUrlTree(['/sf4']);
+};
