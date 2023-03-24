@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { GithubButtonComponent } from 'ng-github-button';
 import { map } from 'rxjs/operators';
@@ -18,6 +18,7 @@ import pkg from '../../../../package.json';
 import { data } from '../../data';
 import { UpdateAppIndicatorComponent } from '../../shared/features/update-app/update-app-indicator/update-app-indicator.component';
 import { ControlsComponent } from './controls/controls.component';
+import { slideInAnimation } from './nav.animations';
 
 @Component({
   selector: 'app-nav',
@@ -40,11 +41,13 @@ import { ControlsComponent } from './controls/controls.component';
     RouterOutlet,
     UpdateAppIndicatorComponent,
   ],
+  animations: [slideInAnimation],
 })
 export class NavComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
   private dialog = inject(MatDialog);
   private translate = inject(TranslateService);
+  private contexts = inject(ChildrenOutletContexts);
 
   public characters = data[0].characters;
   public filteredCharacters = [...this.characters];
@@ -74,5 +77,9 @@ export class NavComponent implements OnInit {
   public clearSearch(): void {
     this.search = '';
     this.filterCharacters('');
+  }
+
+  public getRouteAnimationData(): string | undefined {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }
