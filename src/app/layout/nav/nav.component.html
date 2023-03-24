@@ -70,7 +70,7 @@
         </button>
       </mat-menu>
     </mat-toolbar>
-    <div>
+    <div [@routeAnimations]="getRouteAnimationData()">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
