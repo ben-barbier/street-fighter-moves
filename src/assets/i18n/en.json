@@ -32,9 +32,18 @@
     "triple-kick": "3 Kick buttons in same time"
   },
   "pages": {
-    "character-details": {
-      "stun": "Stun",
-      "stamina": "Stamina"
+    "character": {
+      "title": "Street Fighter Moves - {{character}}",
+      "details": {
+        "stun": "Stun",
+        "stamina": "Stamina"
+      }
+    },
+    "characters-list": {
+      "title": "Street Fighter Moves - Characters"
+    },
+    "country": {
+      "title": "Street Fighter Moves - Countries - {{country}}"
     }
   }
 }
