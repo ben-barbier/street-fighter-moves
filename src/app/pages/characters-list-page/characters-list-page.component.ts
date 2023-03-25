@@ -2,6 +2,7 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Character, data } from '../../data';
 
 @Component({
@@ -14,6 +15,7 @@ import { Character, data } from '../../data';
 export class CharactersListPageComponent implements OnInit, OnDestroy {
   private title = inject(Title);
   private meta = inject(Meta);
+  private translate = inject(TranslateService);
   private document = inject(DOCUMENT);
 
   public characters: Character[] = data[0].characters;
@@ -21,7 +23,7 @@ export class CharactersListPageComponent implements OnInit, OnDestroy {
   public trackById = (index: number, character: Character) => character.id;
 
   ngOnInit(): void {
-    const titleText = 'Street Fighter Moves';
+    const titleText = this.translate.instant('pages.characters-list.title');
     this.title.setTitle(titleText);
 
     const description = 'Street Fighter 4 Arcade Edition';

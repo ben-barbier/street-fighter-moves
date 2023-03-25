@@ -3,6 +3,7 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Character, maxStamina, maxStun } from '../../data';
@@ -21,6 +22,7 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private title = inject(Title);
   private meta = inject(Meta);
+  private translate = inject(TranslateService);
   private document = inject(DOCUMENT);
 
   public character$: Observable<Character> = this.route.data.pipe(map(resolveData => resolveData['character']));
@@ -29,7 +31,7 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
-      const titleText = `Street Fighter Moves - ${character.name}`;
+      const titleText = this.translate.instant('pages.character.title', { character: character.name });
       this.title.setTitle(titleText);
 
       const description = `Street Fighter 4 Arcade Edition - ${character.name} moves`;

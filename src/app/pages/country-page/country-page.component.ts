@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { Character, countries, maxStamina, maxStun } from '../../data';
 import { CharacterDetailsComponent } from '../character-page/character-details/character-details.component';
@@ -17,6 +18,7 @@ export class CountryPageComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private title = inject(Title);
   private meta = inject(Meta);
+  private translate = inject(TranslateService);
 
   public characters: Character[] = [];
   public maxStamina: number = maxStamina(1);
@@ -30,7 +32,7 @@ export class CountryPageComponent implements OnInit, OnDestroy {
       this.characters = characters;
       this.otherCountries = [...new Set(countries(1).filter(c => c !== this.characters[0].country))];
 
-      const titleText = `Street Fighter Moves - ${this.country}`;
+      const titleText = this.translate.instant('pages.country.title', { country: this.country });
       this.title.setTitle(titleText);
 
       const description = `Street Fighter 4 Arcade Edition - ${this.country} characters`;

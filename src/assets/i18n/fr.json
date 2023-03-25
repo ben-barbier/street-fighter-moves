@@ -32,9 +32,18 @@
     "triple-kick": "3 boutons 'Coup de pied' en même temps"
   },
   "pages": {
-    "character-details": {
-      "stun": "Étourdissement",
-      "stamina": "Endurance"
+    "character": {
+      "title": "Street Fighter Moves - {{character}}",
+      "details": {
+        "stun": "Étourdissement",
+        "stamina": "Endurance"
+      }
+    },
+    "characters-list": {
+      "title": "Street Fighter Moves - Personnages"
+    },
+    "country": {
+      "title": "Street Fighter Moves - Pays - {{country}}"
     }
   }
 }
