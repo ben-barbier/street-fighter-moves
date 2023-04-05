@@ -20,8 +20,8 @@
       <mat-label>
         <mat-icon>person_search</mat-icon>
       </mat-label>
-      <input type="text" matInput [(ngModel)]="search" (ngModelChange)="filterCharacters(search)" />
-      <button type="button" *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+      <input type="text" matInput ngModel (ngModelChange)="search.set($event)" />
+      <button type="button" *ngIf="search()" matSuffix mat-icon-button aria-label="Clear" (click)="search.set('')">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -29,14 +29,14 @@
       <a
         mat-list-item
         (click)="isHandset && drawer.close()"
-        *ngFor="let character of filteredCharacters"
+        *ngFor="let character of filteredCharacters()"
         [routerLink]="['/sf4', 'characters', character.id]"
       >
         <img class="character-thumbnail" [src]="'assets/characters/' + character.id + '_thumbnail.png'" [alt]="character.name" />
         {{ character.name }}
       </a>
 
-      <mat-list-item *ngIf="filteredCharacters.length === 0">
+      <mat-list-item *ngIf="filteredCharacters().length === 0">
         <mat-icon>search_off</mat-icon>
         <div>{{ 'nav.no-results' | translate }}</div>
       </mat-list-item>

@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -50,10 +50,12 @@ export class NavComponent implements OnInit {
   private contexts = inject(ChildrenOutletContexts);
 
   public characters = data[0].characters;
-  public filteredCharacters = [...this.characters];
   public version: string = pkg?.version;
   public isHandset = false;
-  public search = '';
+  public search = signal('');
+  public filteredCharacters = computed(() =>
+    this.characters.filter(character => character.name.toLowerCase().includes(this.search().toLowerCase())),
+  );
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -68,15 +70,6 @@ export class NavComponent implements OnInit {
 
   public setLang(lang: 'fr' | 'en'): void {
     this.translate.use(lang);
-  }
-
-  public filterCharacters(search: string): void {
-    this.filteredCharacters = this.characters.filter(character => character.name.toLowerCase().includes(search.toLowerCase()));
-  }
-
-  public clearSearch(): void {
-    this.search = '';
-    this.filterCharacters('');
   }
 
   public getRouteAnimationData(): string | undefined {
