@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { fromObservable } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -43,7 +44,7 @@ import { slideInAnimation } from './nav.animations';
   ],
   animations: [slideInAnimation],
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   private breakpointObserver = inject(BreakpointObserver);
   private dialog = inject(MatDialog);
   private translate = inject(TranslateService);
@@ -51,18 +52,15 @@ export class NavComponent implements OnInit {
 
   public characters = data[0].characters;
   public version: string = pkg?.version;
-  public isHandset = false;
-  public search = signal('');
-  public filteredCharacters = computed(() =>
-    this.characters.filter(character => character.name.toLowerCase().includes(this.search().toLowerCase())),
+  public isHandset: Signal<boolean> = fromObservable(
+    this.breakpointObserver.observe('(max-width: 739px)').pipe(map(result => result.matches)),
+    false,
   );
-
-  ngOnInit(): void {
-    this.breakpointObserver
-      .observe('(max-width: 739px)')
-      .pipe(map(result => result.matches))
-      .subscribe(isHandset => (this.isHandset = isHandset));
-  }
+  public role = computed(() => (this.isHandset() ? 'dialog' : 'navigation'));
+  public mode = computed(() => (this.isHandset() ? 'over' : 'side'));
+  public opened = computed(() => !this.isHandset());
+  public search = signal('');
+  public filteredCharacters = computed(() => this.characters.filter(c => c.name.toLowerCase().includes(this.search().toLowerCase())));
 
   public openControls(): void {
     this.dialog.open(ControlsComponent);
