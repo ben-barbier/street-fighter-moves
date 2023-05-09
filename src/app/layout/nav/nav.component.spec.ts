@@ -46,7 +46,7 @@ describe('NavComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
       ],
-      providers: [{ provide: PromptUpdateService, useValue: { promptUpdateDilog: jest.fn() } }],
+      providers: [{ provide: PromptUpdateService, useValue: { promptUpdateDialog: jest.fn() } }],
     }).compileComponents();
   }));
 

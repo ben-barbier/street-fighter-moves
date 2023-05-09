@@ -23,7 +23,7 @@ export class CountryPageComponent implements OnInit, OnDestroy {
   public characters: Character[] = [];
   public maxStamina: number = maxStamina(1);
   public maxStun: number = maxStun(1);
-  public country: string = '';
+  public country = '';
   public otherCountries: string[] = [];
 
   ngOnInit(): void {

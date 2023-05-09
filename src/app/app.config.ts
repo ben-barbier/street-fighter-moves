@@ -1,24 +1,21 @@
 import { LOCATION_INITIALIZED } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { APP_INITIALIZER, ApplicationConfig, Injector, importProvidersFrom, isDevMode } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { finalize, tap } from 'rxjs';
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavComponent } from './layout/nav/nav.component';
+import { routes } from './app.routes';
 
 const availableLanguages = ['fr', 'en'];
 
 const loadTranslations =
-  (translate: TranslateService, injector: Injector): (() => Promise<any>) =>
+  (translate: TranslateService, injector: Injector): (() => Promise<void>) =>
   () =>
-    new Promise<any>((resolve: any) => {
+    new Promise<void>(resolve => {
       const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
       locationInitialized.then(() => {
         const browserLanguage = navigator?.language?.split('-')[0];
@@ -37,25 +34,25 @@ const loadTranslations =
       });
     });
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatDialogModule,
-    NavComponent,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
-        deps: [HttpClient],
-      },
-    }),
-  ],
+export const appConfig: ApplicationConfig = {
   providers: [
+    provideRouter(routes),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+    provideAnimations(),
+    provideHttpClient(),
+    importProvidersFrom(MatDialogModule),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
+          deps: [HttpClient],
+        },
+      }),
+    ),
     {
       provide: APP_INITIALIZER,
       useFactory: loadTranslations,
@@ -63,6 +60,4 @@ const loadTranslations =
       multi: true,
     },
   ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+};
