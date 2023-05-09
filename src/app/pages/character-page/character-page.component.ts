@@ -1,8 +1,8 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,7 +10,6 @@ import { Character, maxStamina, maxStun } from '../../data';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { CharacterMovesComponent } from './character-moves/character-moves.component';
 
-@UntilDestroy()
 @Component({
   selector: 'app-character-page',
   templateUrl: './character-page.component.html',
@@ -30,7 +29,7 @@ export class CharacterPageComponent implements OnInit, OnDestroy {
   public maxStun = maxStun(1);
 
   ngOnInit(): void {
-    this.character$.pipe(untilDestroyed(this)).subscribe((character: Character) => {
+    this.character$.pipe(takeUntilDestroyed()).subscribe((character: Character) => {
       const titleText = this.translate.instant('pages.character.title', { character: character.name });
       this.title.setTitle(titleText);
 

@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';
 import { canActivateCharacter } from './pages/character-page/character-page.guard';
 import { characterPageResolver } from './pages/character-page/character-page.resolver';
@@ -8,7 +7,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { canActivateCountry } from './pages/country-page/country-page.guard';
 import { countryPageResolver } from './pages/country-page/country-page.resolver';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'sf4',
     component: CharactersListPageComponent,
@@ -30,9 +29,3 @@ const routes: Routes = [
   },
   { path: '**', redirectTo: '/sf4' },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
